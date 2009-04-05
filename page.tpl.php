@@ -71,6 +71,7 @@ header
 
 
   <?php print $site_slogan ?>
+  <?php print $mission ?>
 
   <?php if ($primary_links){ ?>
     <?php print theme('links', $primary_links); ?>

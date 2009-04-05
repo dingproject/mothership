@@ -14,6 +14,7 @@
   preprocess
 * ------------------------------------- */
 function mothership_preprocess_page(&$vars, $hook) {
+
   // Define the content width
 //  $vars['column_left_classes'] = $vars['right'] ? 'grid-8' : 'grid-12';
   // Add HTML tag name for title tag.
@@ -76,8 +77,8 @@ function mothership_preprocess_node(&$vars, $hook) {
 
   //Add regions to a node
   if ($vars['page'] == TRUE) {
-    $vars['node_top'] = theme('blocks', 'node_top');
-    $vars['node_bottom'] = theme('blocks', 'node_bottom');
+    $vars['node_region_one'] = theme('blocks', 'node_region_one');
+    $vars['node_region_two'] = theme('blocks', 'node_region_two');
   }
 
 }

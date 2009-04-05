@@ -47,11 +47,13 @@
 	<?php } ?>
 
 
-	<?php print $node_top;?>	
+
 
 	<?php print $content ?>
 
-	<?php print $node_bottom;?>
+	<?php print $node_region_two;?>	
+
+	<?php print $node_region_one;?>
 		
 	<?php if ($links){ ?>
     <?php  print $links; ?>
