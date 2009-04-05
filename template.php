@@ -134,7 +134,7 @@ function mothership_preprocess(&$variables, $hook) {
 function mothership_breadcrumb($breadcrumb) {
   GLOBAL $base_path;
   if (strip_tags($breadcrumb[0]) == "Home") {
-    $breadcrumb[0] ='<a href="'.$base_path.'">'.variable_get(site_name,'').'</a></li>';
+    $breadcrumb[0] ='<a href="'.$base_path.'">'.variable_get(site_name,'').'</a>';
   }
 
   if (!empty($breadcrumb)) {
