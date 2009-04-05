@@ -2,12 +2,12 @@
 /* =====================================
   Forms 
 * ------------------------------------- */
-function phptemplate_form($element) {
+function mothership_form($element) {
   $action = $element['#action'] ? 'action="'. check_url($element['#action']) .'" ' : '';
   return '<form '. $action .' accept-charset="UTF-8" method="'. $element['#method'] .'" id="'. $element['#id'] .'"'. drupal_attributes($element['#attributes']) .">\n". $element['#children'] ."\n</form>\n";
 }
 
-function phptemplate_form_element($element, $value) {
+function mothership_form_element($element, $value) {
   // This is also used in the installer, pre-database setup.
   $t = get_t();
   $output = '<div>';
@@ -41,12 +41,12 @@ function phptemplate_form_element($element, $value) {
   return $output;
 }
 
-function phptemplate_file($element) {
+function mothership_file($element) {
   _form_set_class($element, array('form-file'));
   return theme('form_element', $element, '<input type="file" name="'. $element['#name'] .'"'. ($element['#attributes'] ? ' '. drupal_attributes($element['#attributes']) : '') .' id="'. $element['#id'] .'" size="20" />');
 }
 
-function phptemplate_checkbox($element) {
+function mothership_checkbox($element) {
   _form_set_class($element, array('form-checkbox'));
   $checkbox = '<input ';
   $checkbox .= 'type="checkbox" ';
@@ -64,7 +64,7 @@ function phptemplate_checkbox($element) {
   return theme('form_element', $element, $checkbox);
 }
 
-function phptemplate_button($element) {
+function mothership_button($element) {
   // Override theme_button adss spans around it so we can tweak the shit ouuta it
   //http://teddy.fr/blog/beautify-your-drupal-forms
   // Make sure not to overwrite classes.
@@ -79,7 +79,7 @@ function phptemplate_button($element) {
   return '<span class="button"><span><input type="submit" '. (empty($element['#name']) ? '' : 'name="'. $element['#name'] .'" ')  .'id="'. $element['#id'].'" value="'. check_plain($element['#value']) .'" '. drupal_attributes($element['#attributes']) ." /></span></span>\n";
 }
 
-function phptemplate_fieldset($element) {
+function mothership_fieldset($element) {
 
   if (!empty($element['#collapsible'])) {
     drupal_add_js('misc/collapse.js');

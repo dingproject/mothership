@@ -9,14 +9,14 @@ drupal_rebuild_theme_registry(); /*TODO: add a theme setting for this*/
 /* =====================================
   include template overwrites
 * ------------------------------------- */
-    include_once './' . drupal_get_path('theme', 'moshpit') . '/template/template.functions.php';
-    include_once './' . drupal_get_path('theme', 'moshpit') . '/template/template.form.php';
-    include_once './' . drupal_get_path('theme', 'moshpit') . '/template/template.cck.php';
+    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.functions.php';
+    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.form.php';
+    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.cck.php';
 
 /* =====================================
   preprocess
 * ------------------------------------- */
-function moshpit_preprocess_page(&$vars, $hook) {
+function mothership_preprocess_page(&$vars, $hook) {
   // Define the content width
 //  $vars['column_left_classes'] = $vars['right'] ? 'grid-8' : 'grid-12';
   // Add HTML tag name for title tag.
@@ -52,7 +52,7 @@ function moshpit_preprocess_page(&$vars, $hook) {
   
 }
 
-function moshpit_preprocess_node(&$vars, $hook) {
+function mothership_preprocess_node(&$vars, $hook) {
   // Special classes for nodes
   $classes =array();
 
@@ -85,7 +85,7 @@ function moshpit_preprocess_node(&$vars, $hook) {
 
 }
 
-function moshpit_preprocess_block(&$vars, $hook) {
+function mothership_preprocess_block(&$vars, $hook) {
   $block = $vars['block'];
   // classes for blocks.
   $classes = array('block');
@@ -95,8 +95,8 @@ function moshpit_preprocess_block(&$vars, $hook) {
   $vars['edit_links_array'] = array();
   $vars['edit_links'] = '';
   if (user_access('administer blocks')) {
-    include_once './' . drupal_get_path('theme', 'moshpit') . '/template/template.block-editing.php';
-    zen_moshpit_preprocess_block_editing($vars, $hook);
+    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.block-editing.php';
+    zen_mothership_preprocess_block_editing($vars, $hook);
     $classes[] = 'with-block-editing';
   }
   // Render block classes.
@@ -104,11 +104,11 @@ function moshpit_preprocess_block(&$vars, $hook) {
 }
 
 /*views*/
-function moshpit_preprocess_views_view_list(&$vars){
-  moshpit_preprocess_views_view_unformatted($vars);  
+function mothership_preprocess_views_view_list(&$vars){
+  mothership_preprocess_views_view_unformatted($vars);  
 }
 
-  function moshpit_preprocess_views_view_unformatted(&$vars) {
+  function mothership_preprocess_views_view_unformatted(&$vars) {
   $view     = $vars['view'];
   $rows     = $vars['rows'];
 
@@ -128,13 +128,13 @@ function moshpit_preprocess_views_view_list(&$vars){
 /* =====================================
   Breadcrumb
 * ------------------------------------- */
-function moshpit_preprocess(&$variables, $hook) {
+function mothership_preprocess(&$variables, $hook) {
     //Make active page title in breadcrumbs 
     if(!empty($variables['breadcrumb'])) $variables['breadcrumb'] = '<ul class="breadcrumb">'.$variables['breadcrumb'].'<li>: '.$variables['title'].'</li></ul>';
 }
 
 /*changes the home title to the sitename*/
-function moshpit_breadcrumb($breadcrumb) {
+function mothership_breadcrumb($breadcrumb) {
   GLOBAL $base_path;
   if (strip_tags($breadcrumb[0]) == "Home") {
     $breadcrumb[0] ='<a href="'.$base_path.'">'.variable_get(site_name,'').'</a></li>';
@@ -150,9 +150,9 @@ function moshpit_breadcrumb($breadcrumb) {
 * ------------------------------------- */
 //filter tips http://drupal.org/node/215653
 //TODO this should be moved into a module
-function phptemplate_filter_tips($tips, $long = FALSE, $extra = '') {
+function mothership_filter_tips($tips, $long = FALSE, $extra = '') {
   return '';
 }
-function phptemplate_filter_tips_more_info () {
+function mothership_filter_tips_more_info () {
   return '';
 }

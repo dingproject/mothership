@@ -6,7 +6,7 @@
 /**
  * Theme function for the 'generic' single file formatter.
  */
-function phptemplate_filefield_file($file) {
+function mothership_filefield_file($file) {
   // Views may call this function with a NULL value, return an empty string.
   if (empty($file['fid'])) {
     return '';
@@ -42,7 +42,7 @@ function phptemplate_filefield_file($file) {
 
 
 //icon
-function phptemplate_filefield_icon($file) {
+function mothership_filefield_icon($file) {
   if (is_object($file)) {
     $file = (array) $file;
   }
