@@ -1,5 +1,5 @@
 name        = mothership
-description = Theme for cleaning up the html
+description = Theme for cleaning up that drupal html...
 screenshot  = screenshot.png
 version     = dev 1.1
 core        = 6.x
@@ -26,19 +26,3 @@ features[] = favicon
 ;features[] = slogan
 features[] = primary_links
 features[] = secondary_links
-
-;--------------------- styles ------------------------------
-stylesheets[all][]    = style/reset.css
-stylesheets[all][]    = style/drupal.css
-stylesheets[all][]    = style/grid.css
-stylesheets[all][]    = style/typography.css
-stylesheets[all][]    = style/style.css 
-
-;stylesheets[print][]  = style/print.css 
-
-;------------------ conditional styles---------------------
-;conditional-stylesheets[if lt IE 7][all][] = style_ie6.css
-;conditional-stylesheets[if IE 7][all][] = style_ie.css
-
-;--------------------- scripts ----------------------------
-;scripts[] = script.js

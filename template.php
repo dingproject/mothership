@@ -3,9 +3,6 @@
   template.php
 * ------------------------------------- */
 
-// Auto-rebuild the theme registry during theme development.
-drupal_rebuild_theme_registry(); /*TODO: add a theme setting for this*/
-
 /* =====================================
   include template overwrites
 * ------------------------------------- */
@@ -30,8 +27,8 @@ function mothership_preprocess_page(&$vars, $hook) {
     // Add unique classes for each page and website section
     $path = drupal_get_path_alias($_GET['q']);
     list($section, ) = explode('/', $path, 2);
-    $body_classes[] = zen_id_safe('page-' . $path);
-    $body_classes[] = zen_id_safe('section-' . $section);
+    $body_classes[] = mothership_id_safe('page-' . $path);
+    $body_classes[] = mothership_id_safe('section-' . $section);
     if (arg(0) == 'node') {
       if (arg(1) == 'add') {
         if ($section == 'node') {
