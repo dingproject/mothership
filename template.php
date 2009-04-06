@@ -1,5 +1,6 @@
 <?php
 /* =====================================
+  mothership
   template.php
 * ------------------------------------- */
 
@@ -14,9 +15,8 @@
   preprocess
 * ------------------------------------- */
 function mothership_preprocess_page(&$vars, $hook) {
-
   // Define the content width
-//  $vars['column_left_classes'] = $vars['right'] ? 'grid-8' : 'grid-12';
+  //  $vars['column_left_classes'] = $vars['right'] ? 'grid-8' : 'grid-12';
   // Add HTML tag name for title tag.
   $vars['site_name_element'] = $vars['is_front'] ? 'h1' : 'div';
 
@@ -75,7 +75,7 @@ function mothership_preprocess_node(&$vars, $hook) {
   
   $vars['classes'] = implode(' ', $classes);
 
-  //Add regions to a node
+  //Add regions to a node? 
   if ($vars['page'] == TRUE) {
     $vars['node_region_one'] = theme('blocks', 'node_region_one');
     $vars['node_region_two'] = theme('blocks', 'node_region_two');
@@ -101,25 +101,27 @@ function mothership_preprocess_block(&$vars, $hook) {
   $vars['classes'] = implode(' ', $classes);
 }
 
-/*views*/
+/* =====================================
+  views
+* ------------------------------------- */
 function mothership_preprocess_views_view_list(&$vars){
   mothership_preprocess_views_view_unformatted($vars);  
 }
 
   function mothership_preprocess_views_view_unformatted(&$vars) {
-  $view     = $vars['view'];
-  $rows     = $vars['rows'];
+    $view     = $vars['view'];
+    $rows     = $vars['rows'];
 
-  $vars['classes'] = array();
-  // Set up striping values.
-  foreach ($rows as $id => $row) {
-  //  $vars['classes'][$id] = 'views-row-' . ($id + 1);
-  //    $vars['classes'][$id] .= ' views-row-' . ($id % 2 ? 'even' : 'odd');
-    if ($id == 0) {
-      $vars['classes'][$id] .= ' first';
-    }
-  }
-  $vars['classes'][$id] .= ' last';
+    $vars['classes'] = array();
+    // Set up striping values.
+    // foreach ($rows as $id => $row) {
+    //  $vars['classes'][$id] = 'views-row-' . ($id + 1);
+    //    $vars['classes'][$id] .= ' views-row-' . ($id % 2 ? 'even' : 'odd');
+    //  if ($id == 0) {
+    //    $vars['classes'][$id] .= ' first';
+    //  }
+   // }
+   // $vars['classes'][$id] .= ' last';
   }
 
 
