@@ -37,7 +37,8 @@ function mothership_filefield_file($file) {
   }
 
 //  return '<div class="filefield-file clear-block">'. $icon . l($link_text, $url, $options) .'</div>';
-  return  $icon . l($link_text, $url, $options);
+
+  return l($icon.'<span>'.$link_text.'</span>', $url, $options= array('html'=>TRUE));
 }
 
 
@@ -55,5 +56,5 @@ function mothership_filefield_icon($file) {
     $icon = '<img "  alt="'. $mime .' icon" src="'. $icon_url .'" />';
   }
 //  return '<div class="filefield-icon field-icon-'. $dashed_mime .'">'. $icon .'</div>';
-  return '<div>'. $icon .'</div>';
+  return $icon;
 }

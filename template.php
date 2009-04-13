@@ -4,13 +4,16 @@
   template.php
 * ------------------------------------- */
 
+
+
 /* =====================================
   include template overwrites
 * ------------------------------------- */
     include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.functions.php';
     include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.form.php';
     include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.cck.php';
-
+    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.table.php';
+    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.alternatives.php';
 /* =====================================
   preprocess
 * ------------------------------------- */
@@ -76,6 +79,7 @@ function mothership_preprocess_node(&$vars, $hook) {
   $vars['classes'] = implode(' ', $classes);
 
   //Add regions to a node? 
+  //TODO take this out 
   if ($vars['page'] == TRUE) {
     $vars['node_region_one'] = theme('blocks', 'node_region_one');
     $vars['node_region_two'] = theme('blocks', 'node_region_two');
@@ -150,9 +154,11 @@ function mothership_breadcrumb($breadcrumb) {
 * ------------------------------------- */
 //filter tips http://drupal.org/node/215653
 //TODO this should be moved into a module
+/*
 function mothership_filter_tips($tips, $long = FALSE, $extra = '') {
   return '';
 }
 function mothership_filter_tips_more_info () {
   return '';
 }
+*/

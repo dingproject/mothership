@@ -8,17 +8,19 @@ function mothership_form($element) {
 }
 
 function mothership_form_element($element, $value) {
+
   // This is also used in the installer, pre-database setup.
   $t = get_t();
-  $output = '<div>';
+  //$output = '<div>';
   //  removed $output = '<div class="form-item"';
-//  $output = '<div ';
+  //so we dont know its a div hu? form div ....
+  $output = '<div ';
   // removed the ID wrapper
    if (!empty($element['#id'])) {
- //   $output .= ' id="'. $element['#id'] .'-wrapper"';
+    $output .= ' id="'. $element['#id'] .'-wrapper"';
    }
-//  $output .= ">\n";
-  $required = !empty($element['#required']) ? '<span class="form-required" title="'. $t('This field is required.') .'">*</span>' : '';
+  $output .= ">\n";
+   $required = !empty($element['#required']) ? '<span class="form-required" title="'. $t('This field is required.') .'">*</span>' : '';
 
   if (!empty($element['#title'])) {
     $title = $element['#title'];
@@ -33,7 +35,7 @@ function mothership_form_element($element, $value) {
   $output .= " $value\n";
 
   if (!empty($element['#description'])) {
-    $output .= ' <div class="description">'. $element['#description'] ."</div>\n";
+    $output .= '<div class="description">'. $element['#description'] ."</div>\n";
   }
 
   $output .= "</div>\n";
@@ -80,11 +82,11 @@ function mothership_button($element) {
 }
 
 function mothership_fieldset($element) {
+  
+  $element['#attributes']['class'] .= ''.$element['#array_parents']['0'];
 
   if (!empty($element['#collapsible'])) {
     drupal_add_js('misc/collapse.js');
-
- //   $element['#attributes']['class'] .= ' '.$element['#title'];
 
     if (!isset($element['#attributes']['class'])) {
       $element['#attributes']['class'] = '';
