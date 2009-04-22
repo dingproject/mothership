@@ -13,9 +13,9 @@ function mothership_form_element($element, $value) {
   $t = get_t();
   //$output = '<div>';
   //  removed $output = '<div class="form-item"';
-  //so we dont know its a div hu? form div ....
+  //so we dont know its a div hmm? form>div ....
   $output = '<div ';
-  // removed the ID wrapper
+  // removed the ID wrapper?
    if (!empty($element['#id'])) {
     $output .= ' id="'. $element['#id'] .'-wrapper"';
    }
@@ -31,8 +31,8 @@ function mothership_form_element($element, $value) {
       $output .= ' <label>'. $t('!title: !required', array('!title' => filter_xss_admin($title), '!required' => $required)) ."</label>\n";
     }
   }
-
-  $output .= " $value\n";
+  //TODO test to see if this is clean text - then we might need a <span> etc
+  $output .= "$value\n";
 
   if (!empty($element['#description'])) {
     $output .= '<div class="description">'. $element['#description'] ."</div>\n";
