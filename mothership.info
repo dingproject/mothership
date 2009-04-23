@@ -1,10 +1,8 @@
 name        = mothership
 description = Theme for cleaning up that drupal html, and provide as a super super clean "theme"
 screenshot  = screenshot.png
-version     = dev 1.1
 core        = 6.x
 engine      = phptemplate
-
 
 ;--------------------- regions -----------------------------
 regions[header]         = header
@@ -26,3 +24,5 @@ features[] = favicon
 features[] = slogan
 features[] = primary_links
 features[] = secondary_links
+
+;--------------------- drupal.org packaging  ----------------------------

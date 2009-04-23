@@ -19,10 +19,8 @@
 * ------------------------------------- */
 function mothership_preprocess_page(&$vars, $hook) {
   // Define the content width
-  //  $vars['column_left_classes'] = $vars['right'] ? 'grid-8' : 'grid-12';
   // Add HTML tag name for title tag.
   $vars['site_name_element'] = $vars['is_front'] ? 'h1' : 'div';
-
 
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
@@ -78,13 +76,12 @@ function mothership_preprocess_node(&$vars, $hook) {
   
   $vars['classes'] = implode(' ', $classes);
 
-  //Add regions to a node? 
-  //TODO take this out 
+  //Add regions to a node?  //TODO take this out and add it in as options...
   if ($vars['page'] == TRUE) {
     $vars['node_region_one'] = theme('blocks', 'node_region_one');
     $vars['node_region_two'] = theme('blocks', 'node_region_two');
   }
-
+  //dsm($vars['template_files']);
 }
 
 function mothership_preprocess_block(&$vars, $hook) {
@@ -103,6 +100,8 @@ function mothership_preprocess_block(&$vars, $hook) {
   }
   // Render block classes.
   $vars['classes'] = implode(' ', $classes);
+  
+  //dsm($vars['template_files']);
 }
 
 /* =====================================
@@ -148,17 +147,3 @@ function mothership_breadcrumb($breadcrumb) {
     return '<li>'. implode('/</li><li>', $breadcrumb) .'</li>';
   }
 }
-
-/* =====================================
-  Clean up
-* ------------------------------------- */
-//filter tips http://drupal.org/node/215653
-//TODO this should be moved into a module
-/*
-function mothership_filter_tips($tips, $long = FALSE, $extra = '') {
-  return '';
-}
-function mothership_filter_tips_more_info () {
-  return '';
-}
-*/
