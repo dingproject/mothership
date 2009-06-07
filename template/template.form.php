@@ -14,6 +14,7 @@ function mothership_form_element($element, $value) {
   //$output = '<div>';
   //  removed $output = '<div class="form-item"';
   //so we dont know its a div hmm? form>div ....
+  //TODO ie6 screw up kinda forgot ;)... 
   $output = '<div ';
   // removed the ID wrapper?
    if (!empty($element['#id'])) {
@@ -31,7 +32,8 @@ function mothership_form_element($element, $value) {
       $output .= ' <label>'. $t('!title: !required', array('!title' => filter_xss_admin($title), '!required' => $required)) ."</label>\n";
     }
   }
-  //TODO test to see if this is clean text - then we might need a <span> etc
+  //TODO test to see if this is clean text - then we might need a <span> 
+  //if we need to catch the content with 
   $output .= "$value\n";
 
   if (!empty($element['#description'])) {
