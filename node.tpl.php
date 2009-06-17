@@ -2,7 +2,10 @@
 <?php // krumo($node->content);	?>	
 <?php // print_r(get_defined_vars());  ?> 
 <?php //print $FIELD_NAME_rendered ?>
+
+
 <?php if ($page == 0){ ?>
+<?php print $classes ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?>">
 
 	<?php if($node->title){	?>	
@@ -30,6 +33,7 @@
 //Content
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix">
+<?php print $classes ?>
 	<h1><?php print $title;?></h1>
 		
   <?php if ($submitted){ ?>

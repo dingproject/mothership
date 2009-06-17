@@ -24,7 +24,8 @@ page vars dsm(get_defined_vars())
   <?php print $styles; ?>
   <?php print $scripts; ?>
 </head>
-<body class="<?php print $body_classes; //can be modified in template.php mothership_preprocess_page  + http://drupal.org./node/171906 ?>">
+<body class="<?php print $body_classes; //can be modified in template.php mothership_preprocess_page or though the theme settings + http://drupal.org./node/171906 ?>">
+
 
 <pre>
 --------------------------------

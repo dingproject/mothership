@@ -1,4 +1,5 @@
 <?php 
+/* removes the  <div> around  the list and add the item-list class into the ul/ol */
 function mothership_item_list($items = array(), $title = NULL, $type = 'ul', $attributes = NULL) {
   $attributes['class'] .= " item-list";
 
@@ -32,6 +33,10 @@ function mothership_item_list($items = array(), $title = NULL, $type = 'ul', $at
       if (count($children) > 0) {
         $data .= theme_item_list($children, NULL, $type, $attributes); // Render nested list
       }
+      
+      $mothership_cleanup_itemlist = theme_get_setting('mothership_cleanup_itemlist');       
+    //removed first / last fromt the item list  
+      
     //  if ($i == 0) {
     //    $attributes['class'] = empty($attributes['class']) ? 'first' : ($attributes['class'] .' first');
     //  }
