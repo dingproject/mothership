@@ -42,5 +42,23 @@ settings[mothership_class_node_regions]  = 1
 settings[mothership_class_block_block]  = 1
 settings[mothership_class_block_module]  = 1
 settings[mothership_class_block_zebra]  = 1
+settings[mothership_class_block_block]  = 1
+settings[mothership_class_block_module]  = 1
+settings[mothership_class_block_region_zebra]  = 0
+settings[mothership_class_block_region_count]  = 0
+settings[mothership_class_block_front]  = 0
+settings[mothership_class_block_loggedin]  = 0
+settings[mothership_class_block_zebra]  = 0
+settings[mothership_class_block_count]  = 0
+
+settings[mothership_class_comment_comment]  = 1
+settings[mothership_class_comment_status]  = 1
+settings[mothership_class_comment_new]  = 1
+settings[mothership_class_comment_first]  = 0
+settings[mothership_class_comment_last]  = 0
+settings[mothership_class_comment_zebra]  = 0
+settings[mothership_class_comment_front]  = 0
+settings[mothership_class_comment_loggedin]  = 0
+settings[mothership_class_comment_user]  = 0
 
 ;--------------------- drupal.org packaging  ----------------------------

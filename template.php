@@ -4,7 +4,6 @@
   template.php
 * ------------------------------------- */
 
-  
 /* =====================================
   include template overwrites
 * ------------------------------------- */
@@ -13,6 +12,7 @@
     include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.cck.php';
     include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.table.php';
     include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.alternatives.php';
+
 /* =====================================
   preprocess
 * ------------------------------------- */
@@ -122,32 +122,46 @@ function mothership_preprocess_node(&$vars, $hook) {
 
 function mothership_preprocess_block(&$vars, $hook) {
   $block = $vars['block'];
+//  dsm($vars);
   // classes for blocks.
-  $classes = array('block');
+  $classes = array();
   if(theme_get_setting('mothership_class_block_block')){
     $classes[] = 'block';
   }
+
   if(theme_get_setting('mothership_class_block_module')){    
     $classes[] = 'block-' . $block->module;
   }
+
+  if(theme_get_setting('mothership_class_block_region_zebra')){
+    $classes[] = 'region-' . $vars['block_zebra'];
+  }
+
+  if(theme_get_setting('mothership_class_block_region_count')){
+    $classes[] = 'region-count-' . $vars['block_id'];
+  }
+
   if(theme_get_setting('mothership_class_block_zebra')){
     $classes[] = $vars['zebra'];
   }
+  if(theme_get_setting('mothership_class_block_count')){
+    $classes[] = 'count-' . $vars['id'];
+  }
 
-  $classes[] = 'region-' . $vars['block_zebra'];
+  if(theme_get_setting('mothership_class_block_front')){
+    if($vars['is_front']){
+      $classes[] = 'block-front';      
+    }
+  }
 
-  $classes[] = 'region-count-' . $vars['block_id'];
+  if(theme_get_setting('mothership_class_block_loggedin')){
+    if($vars['logged_in']){
+      $classes[] = 'block-logged-in';      
+    }
+  }
 
-  $classes[] = 'count-' . $vars['id'];
 /*
-  $classes[] = 'block-' . $block->module;
-  $classes[] = 'region-' . $vars['block_zebra'];
-  $classes[] = $vars['zebra'];
-  $classes[] = 'region-count-' . $vars['block_id'];
-  $classes[] = 'count-' . $vars['id'];
-
-
-
+TODO first + last  in a region?
   $vars['edit_links_array'] = array();
   $vars['edit_links'] = '';
   if (user_access('administer blocks')) {
@@ -162,8 +176,8 @@ function mothership_preprocess_block(&$vars, $hook) {
   //dsm($vars['template_files']);
 }
 
-
 function mothership_preprocess_comment(&$vars, $hook) {
+  //dsm($vars);
   // Add an "unpublished" flag.
   $vars['unpublished'] = ($vars['comment']->status == COMMENT_NOT_PUBLISHED);
 
@@ -173,40 +187,64 @@ function mothership_preprocess_comment(&$vars, $hook) {
   }
 
   // Special classes for comments.
-  $classes = array('comment');
-  if ($vars['comment']->new) {
-    $classes[] = 'comment-new';
+  $classes = array();
+  
+  if(theme_get_setting('mothership_class_comment_comment')){   
+  $classes[] = 'comment';  
+  }
+  if ($vars['comment']->new AND theme_get_setting('mothership_class_comment_new')) {
+    $classes[] = 'new';
   }
   
-  $classes[] = $vars['status'];
-  
-  $classes[] = $vars['zebra'];
- 
- if ($vars['id'] == 1) {
-    $classes[] = 'first';
+  if(theme_get_setting('mothership_class_comment_status')){   
+    $classes[] = $vars['status'];
   }
- 
-  if ($vars['id'] == $vars['node']->comment_count) {
+  if(theme_get_setting('mothership_class_comment_zebra')){   
+    $classes[] = $vars['zebra'];
+  }  
+  //first last
+  if(theme_get_setting('mothership_class_comment_first')){ 
+    if ($vars['id'] == 1) {
+      $classes[] = 'first';
+    }
+  } 
+  
+  if (($vars['id'] == $vars['node']->comment_count) AND theme_get_setting('mothership_class_comment_last')) {
     $classes[] = 'last';
   }
-  
-  if ($vars['comment']->uid == 0) {
-    // Comment is by an anonymous user.
-    $classes[] = 'comment-by-anon';
-  }
-  else {
-    if ($vars['comment']->uid == $vars['node']->uid) {
-      // Comment is by the node author.
-      $classes[] = 'comment-by-author';
+
+  if(theme_get_setting('mothership_class_comment_user')){  
+    if ($vars['comment']->uid == 0) {
+      // Comment is by an anonymous user.
+      $classes[] = 'by-anonymous';
     }
-    if ($vars['comment']->uid == $GLOBALS['user']->uid) {
-      // Comment was posted by current user.
-      $classes[] = 'comment-mine';
+    else {
+      if ($vars['comment']->uid == $vars['node']->uid) {
+        // Comment is by the node author.
+        $classes[] = 'by-author';
+      }
+      if ($vars['comment']->uid == $GLOBALS['user']->uid) {
+        // Comment was posted by current user.
+        $classes[] = 'by-me';
+      }
+    }
+  }
+  if(theme_get_setting('mothership_class_comment_front')){
+    if($vars['is_front']){
+      $classes[] = 'front';      
     }
   }
 
+  if(theme_get_setting('mothership_class_comment_loggedin')){
+    if($vars['logged_in']){
+      $classes[] = 'logged-in';      
+    }
+  }
+
+
   $vars['classes'] = implode(' ', $classes);
 }
+
 
 /* =====================================
   views

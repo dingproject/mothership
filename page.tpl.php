@@ -25,7 +25,7 @@ page vars dsm(get_defined_vars())
   <?php print $scripts; ?>
 </head>
 <body class="<?php print $body_classes; //can be modified in template.php mothership_preprocess_page or though the theme settings + http://drupal.org./node/171906 ?>">
-
+<?php print $body_classes;?>
 
 <pre>
 --------------------------------
@@ -101,7 +101,7 @@ header
 
 <pre>
 --------------------------------
-regions + content
+content
 --------------------------------
 </pre>
 <?php if ($title AND (arg(0)=="node" AND is_numeric(arg(1)) AND arg(2)!="")) { /*TODO: moved out to the template.php*/ ?>
@@ -111,18 +111,28 @@ regions + content
 
   <?php print $content; ?>
 
+
+
+<pre>
+--------------------------------
+regions
+--------------------------------
+</pre>
+
   <?php if ($header) { ?>
     <?php print $header; ?>
   <?php } ?>
 
 
   <?php if ($left) { ?>
+    --left
       <?php print $left; ?>
+/left
   <?php } ?>
 
 
   <?php if ($right) { ?>
-    <?php print $right; ?>
+    <?php // print $right; ?>
   <?php } ?>
 
   <?php if ($footer_message) { ?>

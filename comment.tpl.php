@@ -27,7 +27,9 @@
  */
 ?>
 <div class="comment<?php print ($comment->new) ? ' comment-new' : ''; print ' '. $status ?>">
+classes:<?php print $classes ?>
   <h3><?php print $title ?></h3>
+<!-- 
   <?php print $picture ?>    
   <?php print $submitted ?>
   <?php if ($comment->new): ?>
@@ -39,5 +41,7 @@
   <?php if ($signature): ?>
     <?php print $signature ?>
   <?php endif; ?>
+
+-->
   <?php print $links ?>    
 </div>
