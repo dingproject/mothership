@@ -25,18 +25,16 @@ features[] = slogan
 features[] = primary_links
 features[] = secondary_links
 
-;--------------------- cleanup settings ----------------------------
-settings[mothership_cleanup_item_list]  = 1
-settings[mothership_class_body_remove]  = 0
+;--------------------- settings ----------------------------
 settings[mothership_class_body_path]    = 1
 settings[mothership_class_body_actions] = 1
 
+settings[mothership_class_node_node] = 1
 settings[mothership_class_node_sticky]  = 0
 settings[mothership_class_node_published] = 1
 settings[mothership_class_node_promote]    = 1
 settings[mothership_class_node_content_type]  = 1
 settings[mothership_class_node_teaser] = 1
-settings[mothership_class_node_node] = 1
 settings[mothership_class_node_regions]  = 1
 
 settings[mothership_class_block_block]  = 1
@@ -60,5 +58,7 @@ settings[mothership_class_comment_zebra]  = 0
 settings[mothership_class_comment_front]  = 0
 settings[mothership_class_comment_loggedin]  = 0
 settings[mothership_class_comment_user]  = 0
+
+settings[mothership_item_list_first_last]  = 1
 
 ;--------------------- drupal.org packaging  ----------------------------

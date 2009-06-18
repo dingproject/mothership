@@ -1,8 +1,9 @@
 <?php 
-/* removes the  <div> around  the list and add the item-list class into the ul/ol */
+/* 
+removes the  <div> around  the list and add the item-list class into the ul/ol 
+*/
 function mothership_item_list($items = array(), $title = NULL, $type = 'ul', $attributes = NULL) {
   $attributes['class'] .= " item-list";
-
 //  $output = '<div class="item-list">';
   if (isset($title)) {
     $output .= '<h3>'. $title .'</h3>';
@@ -35,14 +36,17 @@ function mothership_item_list($items = array(), $title = NULL, $type = 'ul', $at
       }
       
       $mothership_cleanup_itemlist = theme_get_setting('mothership_cleanup_itemlist');       
-    //removed first / last fromt the item list  
       
-    //  if ($i == 0) {
-    //    $attributes['class'] = empty($attributes['class']) ? 'first' : ($attributes['class'] .' first');
-    //  }
-    //  if ($i == $num_items - 1) {
-    //    $attributes['class'] = empty($attributes['class']) ? 'last' : ($attributes['class'] .' last');
-    //  }
+      //removed first / last fromt the item list?
+      if(theme_get_setting('mothership_item_list_first_last')){
+        if ($i == 0) {
+          $attributes['class'] = empty($attributes['class']) ? 'first' : ($attributes['class'] .' first');
+        }
+        if ($i == $num_items - 1) {
+          $attributes['class'] = empty($attributes['class']) ? 'last' : ($attributes['class'] .' last');
+        }
+      }
+
       $output .= '<li'. drupal_attributes($attributes) .'>'. $data ."</li>\n";
     }
     $output .= "</$type>";

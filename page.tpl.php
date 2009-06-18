@@ -88,7 +88,7 @@ header
   <?php } ?>
 
 
-	<?php if ($help OR $messages OR $tabs) { ?>
+	<?php if ($help OR $messages) { ?>
   	  <?php print $help ?>
   	  <?php print $messages ?>
 	<?php } ?>
@@ -96,7 +96,6 @@ header
   <?php if ($tabs){ ?>
     <?php print $tabs; ?>
   <?php }; ?>
-
 
 
 <pre>
@@ -125,14 +124,12 @@ regions
 
 
   <?php if ($left) { ?>
-    --left
-      <?php print $left; ?>
-/left
+    <?php print $left; ?>
   <?php } ?>
 
 
   <?php if ($right) { ?>
-    <?php // print $right; ?>
+    <?php print $right; ?>
   <?php } ?>
 
   <?php if ($footer_message) { ?>
