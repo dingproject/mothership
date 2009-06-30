@@ -14,7 +14,7 @@
   
 */
 ?>
-
+<!-- views-view-list.tpl.php -->
 <?php if (!empty($title)) { ?>
   <h3><?php print $title; ?></h3>
 <?php } ?>
@@ -33,3 +33,4 @@
   <?php endforeach; ?>
 
 </<?php print $options['type']; ?>>
+<!-- /views-view-list.tpl.php -->

@@ -1,13 +1,25 @@
-<?php // krumo($node);	?>	
-<?php // krumo($node->content);	?>	
-<?php // print_r(get_defined_vars());  ?> 
-<?php //print $FIELD_NAME_rendered ?>
+<?php
+/*
+  krumo($node);
+  krumo($node->content);
+  print_r(get_defined_vars());
+  print $FIELD_NAME_rendered;
+*/
+/*
+ad a class="" if we have anything in the $classes var
+this is so we can have a cleaner output - no reason to have an empty <div class="" id=""> 
+*/
+if($classes){
+   $classes = ' class="' . $classes . '"';
+}
 
-
+if($id_node){
+  $id_node = ' id="' . $id_node . '"';  
+}
+?>
+<?php print $id_node . $classes; ?>
 <?php if ($page == 0){ ?>
-<?php print $classes ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?>">
-
+<div<?php print $id_node . $classes; ?>>
 	<?php if($node->title){	?>	
     <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
 	<?php } ?>
@@ -32,10 +44,8 @@
 <?php }else{ 
 //Content
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix">
-<?php print $classes ?>
-	<h1><?php print $title;?></h1>
-		
+<div<?php print $id . $classes; ?>>
+	<h1><?php print $title;?></h1>		
   <?php if ($submitted){ ?>
   	<?php if ($picture) { ;?>
   		<?php print $picture; ?>  
@@ -49,9 +59,6 @@
 	<?php if (count($taxonomy)){ ?>
    	<?php print $terms ?> 
 	<?php } ?>
-
-
-
 
 	<?php print $content ?>
 

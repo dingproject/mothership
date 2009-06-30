@@ -2,6 +2,7 @@
 /* 
 removes the  <div> around  the list and add the item-list class into the ul/ol 
 */
+
 function mothership_item_list($items = array(), $title = NULL, $type = 'ul', $attributes = NULL) {
   $attributes['class'] .= " item-list";
 //  $output = '<div class="item-list">';
@@ -54,4 +55,5 @@ function mothership_item_list($items = array(), $title = NULL, $type = 'ul', $at
 //  $output .= '</div>';
   return $output;
 }
+
 

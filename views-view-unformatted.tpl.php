@@ -11,6 +11,7 @@
   The $classes are defined in template_preprocess_views_view_list() 
 */
 ?>
+<!-- views-view-unformatted.tpl.php -->
 <?php if (!empty($title)): ?>
   <h3><?php print $title; ?></h3>
 <?php endif; ?>
@@ -25,3 +26,4 @@
     <?php print $row; ?>
   </div>
 <?php endforeach; ?>
+<!-- / views-view-unformatted.tpl.php -->

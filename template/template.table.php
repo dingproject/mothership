@@ -79,4 +79,3 @@ function mothership_table($header, $rows, $attributes = array(), $caption = NULL
   $output .= "</table>\n";
   return $output;
 }
-?>
