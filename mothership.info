@@ -61,8 +61,8 @@ settings[mothership_cleanup_comment_front]  = 0
 settings[mothership_cleanup_comment_loggedin]  = 0
 settings[mothership_cleanup_comment_user]  = 0
 
-settings[mothership_cleanup_views_format_title] = 0
-settings[mothership_cleanup_views_format_title_header]  = h3
+settings[mothership_cleanup_views_format_header] = 0
+settings[mothership_cleanup_views_format_header_markup]  = h3
 settings[mothership_cleanup_views_first_last]  = 1
 settings[mothership_cleanup_views_zebra] = 0
 

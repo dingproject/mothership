@@ -1,3 +1,68 @@
+<!-- views-view-fields.tpl.php -->
+<?php foreach ($fields as $id => $field): ?>
+
+  <?php if (!empty($field->separator)): ?>
+    <?php print $field->separator; ?>
+  <?php endif; ?>
+
+    <?php
+    /*test to se if were gonna add a wrapper around the field*/
+    if(theme_get_setting('mothership_cleanup_views_format_header') AND $field->label == "#header"){
+      //we dont need a label for a haeder...
+    }else{
+    ?>
+      <<?php print $field->inline_html;?> class="<?php print $field->class; ?>">
+
+        <?php if ($field->label): ?>
+          <label>
+            <?php print $field->label; ?>:
+          </label>
+        <?php endif; ?>
+
+    <?php
+    }
+    ?>
+
+    <?php
+      // $field->element_type is either SPAN or DIV depending upon whether or not
+      // the field is a 'block' element type or 'inline' element type.
+      //if theres not a field label defined then we wont print the span/div
+      //if its label name is set to header then add a h1-h6 element instead - which can be set in the theme settings
+    ?>
+    <?php 
+    if(theme_get_setting('mothership_cleanup_views_format_header') AND $field->label == "#header"){
+      $field->element_type = theme_get_setting('mothership_cleanup_views_format_header_markup');
+    } 
+    
+    ?>
+
+    <?php if ($field->label): ?>
+      <<?php print $field->element_type; ?>>
+    <?php endif; ?>
+    
+      <?php print $field->content; ?>
+    
+    <?php if ($field->label): ?>
+      </<?php print $field->element_type; ?>>
+    <?php endif; ?>
+
+
+    <?php
+    /*test to se if were gonna add a wrapper around the field*/
+    if(theme_get_setting('mothership_cleanup_views_format_header') AND $field->label == "#header"){
+      //we dont need a label for a haeder...
+    }else{
+    ?>
+    
+    </<?php print $field->inline_html;?>>
+
+    <?php } ?>
+
+
+<?php endforeach; ?>
+<!--/ views-view-fields.tpl.php -->
+
+
 <?php
 // $Id$
 /**
@@ -39,66 +104,3 @@
 <?php endforeach; ?>
 */
 ?>
-<!-- views-view-fields.tpl.php -->
-<?php foreach ($fields as $id => $field): ?>
-
-  <?php if (!empty($field->separator)): ?>
-    <?php print $field->separator; ?>
-  <?php endif; ?>
-
-    <?php
-    /*test to se if were gonna add a wrapper around the field*/
-    if(theme_get_setting('mothership_cleanup_views_format_title') AND $field->label == "Title"){
-      //we dont need a label for a haeder...
-    }else{
-    ?>
-      <<?php print $field->inline_html;?> class="<?php print $field->class; ?>">
-
-        <?php if ($field->label): ?>
-          <label>
-            <?php print $field->label; ?>:
-          </label>
-        <?php endif; ?>
-
-    <?php
-    }
-    ?>
-
-    <?php
-      // $field->element_type is either SPAN or DIV depending upon whether or not
-      // the field is a 'block' element type or 'inline' element type.
-      //if theres not a field label defined then we wont print the span/div
-      //if its label name is set to Title then add a h2-h6 element instead
-    ?>
-    <?php 
-    if(theme_get_setting('mothership_cleanup_views_format_title') AND $field->label == "Title"){
-      $field->element_type = theme_get_setting('mothership_cleanup_views_format_title_header');
-    } 
-    
-    ?>
-
-    <?php if ($field->label): ?>
-      <<?php print $field->element_type; ?>>
-    <?php endif; ?>
-    
-      <?php print $field->content; ?>
-    
-    <?php if ($field->label): ?>
-      </<?php print $field->element_type; ?>>
-    <?php endif; ?>
-
-
-    <?php
-    /*test to se if were gonna add a wrapper around the field*/
-    if(theme_get_setting('mothership_cleanup_views_format_title') AND $field->label == "Title"){
-      //we dont need a label for a haeder...
-    }else{
-    ?>
-    
-    </<?php print $field->inline_html;?>>
-
-    <?php } ?>
-
-
-<?php endforeach; ?>
-<!--/ views-view-fields.tpl.php -->
