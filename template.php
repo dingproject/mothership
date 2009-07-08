@@ -122,7 +122,7 @@ function mothership_preprocess_node(&$vars, $hook) {
     }
   }
 
-  //dsm($vars['template_files']);
+  return $vars['template_files'];
 }
 
 function mothership_preprocess_block(&$vars, $hook) {
@@ -305,7 +305,4 @@ function mothership_preprocess_views_view_list(&$vars){
     }
     return $output;
   }
-
-
-
 

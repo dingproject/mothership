@@ -17,6 +17,7 @@ if($id_node){
   $id_node = ' id="' . $id_node . '"';  
 }
 ?>
+
 <?php print $id_node . $classes; ?>
 <?php if ($page == 0){ ?>
 <div<?php print $id_node . $classes; ?>>
@@ -33,7 +34,8 @@ if($id_node){
 	<?php print format_date($node->created, 'custom', "j F Y") ?> 
 
 	<?php  print $content;?>	
-	<a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print t('read more') ?>
+
+	<a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print t('read more') ?></a>
 
   <?php if ($links){ ?>
     <?php print $links; ?>
