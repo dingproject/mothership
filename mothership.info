@@ -25,6 +25,10 @@ features[] = slogan
 features[] = primary_links
 features[] = secondary_links
 
+;--------------------- styles ------------------------------
+; stylesheets[all][]    = style-test.css
+
+
 ;--------------------- settings ----------------------------
 settings[mothership_cleanup_body_path]    = 1
 settings[mothership_cleanup_body_actions] = 1

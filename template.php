@@ -4,7 +4,10 @@
   template.php
 * ------------------------------------- */
 
-
+// Auto-rebuild the theme registry during theme development.
+if (theme_get_setting('mothership_rebuild_registry')) {
+  drupal_rebuild_theme_registry();
+}
 
 /* =====================================
   include template overwrites

@@ -62,6 +62,7 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()){
   $settings = array_merge($defaults, $saved_settings);
   GLOBAL $vars;
 
+
   // -- cleanup -------------------------------------
   $form['cleanup'] = array(
     '#type'          => 'fieldset',
@@ -393,6 +394,18 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()){
     '#title'         => t('Remove first & last classes from item lists'),
     '#default_value' => $settings['mothership_item_list_first_last'],
   );
+
+
+  // -- theme development -------------------------------------
+
+  $form['misc']['mothership_rebuild_registry'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Rebuild theme registry on every page.'),
+    '#default_value' => $settings['mothership_rebuild_registry'],
+    '#description'   => t('During theme development, it can be very useful to continuously <a href="!link">rebuild the theme registry</a>. WARNING: this is a huge performance penalty and must be turned off on production websites.', array('!link' => 'http://drupal.org/node/173880#theme-registry')),
+  );
+
+
 
   // -- features ------------------------------------- */
 
