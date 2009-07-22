@@ -138,7 +138,7 @@ function mothership_preprocess_block(&$vars, $hook) {
   }
 
   if(theme_get_setting('mothership_cleanup_block_module')){    
-    $classes[] = 'block-' . $block->module;
+    $classes[] = 'block-' . mothership_id_safe($block->module);
   }
 
   if(theme_get_setting('mothership_cleanup_block_region_zebra')){
@@ -146,7 +146,7 @@ function mothership_preprocess_block(&$vars, $hook) {
   }
 
   if(theme_get_setting('mothership_cleanup_block_region_count')){
-    $classes[] = 'region-count-' . $vars['block_id'];
+    $classes[] = 'region-count-' . mothership_id_safe($vars['block_id']);
   }
 
   if(theme_get_setting('mothership_cleanup_block_zebra')){
@@ -154,7 +154,7 @@ function mothership_preprocess_block(&$vars, $hook) {
   }
 
   if(theme_get_setting('mothership_cleanup_block_count')){
-    $classes[] = 'count-' . $vars['id'];
+    $classes[] = 'count-' . mothership_id_safe($vars['id']);
   }
 
   if(theme_get_setting('mothership_cleanup_block_front')){
@@ -181,7 +181,7 @@ function mothership_preprocess_block(&$vars, $hook) {
   */
   // Render block classes.
   $vars['classes'] = implode(' ', $classes);
-
+//  $vars['classes'] =  mothership_id_safe($vars['classes']);
   // id for block
   if(theme_get_setting('mothership_cleanup_block_id')){
     $id_block = array();
