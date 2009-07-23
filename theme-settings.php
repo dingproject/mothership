@@ -296,6 +296,14 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()){
     '#default_value' => $settings['mothership_cleanup_views_zebra'],
   );
 
+  $form['views']['mothership_cleanup_views_row_ident'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('add views-row '),
+    '#default_value' => $settings['mothership_cleanup_views_row_ident'],
+  );
+
+
+
   $form['views']['mothership_cleanup_views_format_header'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Change views title fields markup'),
