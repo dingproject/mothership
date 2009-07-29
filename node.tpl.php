@@ -1,7 +1,8 @@
 <?php
 /*
-  krumo($node);
-  krumo($node->content);
+	dsm($variables['template_files']);
+  dsm($node);
+  dsm($node->content);
   print_r(get_defined_vars());
   print $FIELD_NAME_rendered;
 */
