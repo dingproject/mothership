@@ -1,14 +1,30 @@
 <?php 
 /* 
 removes the  <div> around  the list and add the item-list class into the ul/ol 
+if it has a $title added then hte surrounding div will be 
 */
 
 function mothership_item_list($items = array(), $title = NULL, $type = 'ul', $attributes = NULL) {
+	//fix if the type is div-span
+	if($type == "div-span"){
+		$type = "div";
+		$item_type = "div-span";
+	}else{
+		$item_type = $type;
+	}
+
   $attributes['class'] .= " item-list";
-//  $output = '<div class="item-list">';
+	//test if we have an title then add the div.item-list around the list
   if (isset($title)) {
-    $output .= '<h3>'. $title .'</h3>';
+  	$output = '<div class="item-list">';
+    if($item_type == "span"){
+			$output .= '<span class="title">'. $title .'</span>';	
+		}else{
+			$output .= '<h3>'. $title .'</h3>';	
+		}
+		
   }
+
 
   if (!empty($items)) {
     $output .= "<$type". drupal_attributes($attributes) .'>';
@@ -48,11 +64,23 @@ function mothership_item_list($items = array(), $title = NULL, $type = 'ul', $at
         }
       }
 
-      $output .= '<li'. drupal_attributes($attributes) .'>'. $data ."</li>\n";
+			//is it a li or a span or a div ?
+			if($item_type == "ul" OR $item_type == "ol"){
+				$output .= '<li'. drupal_attributes($attributes) .'>'. $data ."</li>\n";	
+			}elseif($item_type == "span" OR $item_type == "div-span" ){
+				$output .= '<span'. drupal_attributes($attributes) .'>'. $data ."</span>\n";	
+			}elseif($item_type == "div"){
+				$output .= '<div'. drupal_attributes($attributes) .'>'. $data ."</div>\n";	
+			}else{
+				$output .= '<li'. drupal_attributes($attributes) .'>'. $data ."</li>\n";	
+			}
+
     }
     $output .= "</$type>";
   }
-//  $output .= '</div>';
+  if (isset($title)) {
+  	$output .= '</div>';
+	}
   return $output;
 }
 

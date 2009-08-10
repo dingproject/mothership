@@ -112,9 +112,11 @@ function mothership_preprocess_node(&$vars, $hook) {
     $id_node = array();
     $id_node[] = 'node';      
     $id_node[] =  $vars['nid'] ;  
+		if($vars['nid']){
+	    $vars['id_node'] = implode(' ', $id_node);
+	    $vars['id_node'] =  mothership_id_safe($vars['id_node']);
+		}
 
-    $vars['id_node'] = implode(' ', $id_node);
-    $vars['id_node'] =  mothership_id_safe($vars['id_node']);
   }
 
   //Add 2 regions to the node?

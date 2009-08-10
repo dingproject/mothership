@@ -2,13 +2,11 @@
 /* =====================================
   Forms 
 * ------------------------------------- */
-function mothership_form($element) {
-  /*no <div> inside the form
-    TODO: add og collect all hidden fields into a div
-  */
-  $action = $element['#action'] ? 'action="'. check_url($element['#action']) .'" ' : '';
-  return '<form '. $action .' accept-charset="UTF-8" method="'. $element['#method'] .'" id="'. $element['#id'] .'"'. drupal_attributes($element['#attributes']) .">\n". $element['#children'] ."\n</form>\n";
-}
+
+// function mothership_form($element) {
+//   $action = $element['#action'] ? 'action="'. check_url($element['#action']) .'" ' : '';
+//   return '<form '. $action .' accept-charset="UTF-8" method="'. $element['#method'] .'" id="'. $element['#id'] .'"'. drupal_attributes($element['#attributes']) .">\n". $element['#children'] ."\n</form>\n";
+// }
 
 function mothership_form_element($element, $value) {
 /*
