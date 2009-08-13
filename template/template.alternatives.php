@@ -48,21 +48,34 @@ function mothership_item_list($items = array(), $title = NULL, $type = 'ul', $at
       else {
         $data = $item;
       }
+
       if (count($children) > 0) {
         $data .= theme_item_list($children, NULL, $type, $attributes); // Render nested list
       }
       
-      $mothership_cleanup_itemlist = theme_get_setting('mothership_cleanup_itemlist');       
-      
+//      $mothership_cleanup_itemlist = theme_get_setting('mothership_cleanup_itemlist');       
+
+
+		// zebra stribes
+			if(theme_get_setting('mothership_item_list_zebra')){
+				if ($i & 1) {
+					$attributes['class'] = empty($attributes['class']) ? 'odd' : ($attributes['class'] .' odd');
+				}
+				else {
+					$attributes['class'] = empty($attributes['class']) ? 'even' : ($attributes['class'] .' even');
+				}
+			}
       //removed first / last fromt the item list?
       if(theme_get_setting('mothership_item_list_first_last')){
-        if ($i == 0) {
-          $attributes['class'] = empty($attributes['class']) ? 'first' : ($attributes['class'] .' first');
-        }
-        if ($i == $num_items - 1) {
-          $attributes['class'] = empty($attributes['class']) ? 'last' : ($attributes['class'] .' last');
-        }
+				if ($i == 0) {
+		      $attributes['class'] .= ' first';
+		    }
+		    if ($i == $num_items - 1) {
+		      $attributes['class'] .= ' last';
+		    }
       }
+
+
 
 			//is it a li or a span or a div ?
 			if($item_type == "ul" OR $item_type == "ol"){

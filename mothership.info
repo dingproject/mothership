@@ -72,6 +72,7 @@ settings[mothership_cleanup_views_zebra] = 0
 settings[mothership_cleanup_views_row_ident] = 1
 
 settings[mothership_item_list_first_last]  = 1
+settings[mothership_item_list_zebra]  = 1
 
 settings[mothership_cleanup_menu_baseclass]  = 1
 settings[mothership_cleanup_menu_leafs]  = 1

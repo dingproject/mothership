@@ -424,9 +424,16 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()){
 
   $form['misc']['mothership_item_list_first_last'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('Remove first & last classes from item lists'),
+    '#title'         => t('first & last classes from item lists'),
     '#default_value' => $settings['mothership_item_list_first_last'],
   );
+
+  $form['misc']['mothership_item_list_zebra'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('item lists zebra'),
+    '#default_value' => $settings['mothership_item_list_zebra'],
+  );
+
 
 
   // -- theme development -------------------------------------
