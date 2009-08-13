@@ -387,6 +387,31 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()){
   );
 
 
+  // -- style sheet  ------------------------------------- */
+
+  $form['stylesheets'] = array(
+    '#type'          => 'fieldset',
+    '#title'         => t('stylesheets'),
+    '#collapsible' => TRUE, 
+    '#collapsed' => FALSE,    
+  );
+
+
+  $form['stylesheets']['mothership_stylesheet_load_order'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('stylesheet loading order in the .info file'),
+    '#default_value' => $settings['mothership_stylesheet_load_order'],
+    '#description'   => t('.info file: <strong>top stylesheets[all][] = foo.css</strong>'),
+  );
+
+  $form['stylesheets']['mothership_stylesheet_conditional'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('ie specific stylesheet conditions in the .info file'),
+    '#default_value' => $settings['mothership_stylesheet_conditional'],
+    '#description'   => t('.info file: <strong>stylesheets[ condition ][all][] = ie.css</strong>. exampels [if lt IE 7] , [if IE 7] , [if IE 6]'),
+  );
+
+
   // -- misc ------------------------------------- */
 
   $form['misc'] = array(

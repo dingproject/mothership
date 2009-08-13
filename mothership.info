@@ -79,4 +79,7 @@ settings[mothership_cleanup_menu_classes_first_last]  = 1
 settings[mothership_cleanup_menu_classes_active]  = 1
 
 settings[mothership_cleanup_links_baseclass]  = 1
+
+settings[mothership_stylesheet_load_order]  = 1
+settings[mothership_stylesheet_conditional]  = 1
 ;--------------------- drupal.org packaging  ----------------------------
