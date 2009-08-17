@@ -2,20 +2,12 @@
 /* =====================================
   Forms 
 * ------------------------------------- */
-
-// function mothership_form($element) {
-//   $action = $element['#action'] ? 'action="'. check_url($element['#action']) .'" ' : '';
-//   return '<form '. $action .' accept-charset="UTF-8" method="'. $element['#method'] .'" id="'. $element['#id'] .'"'. drupal_attributes($element['#attributes']) .">\n". $element['#children'] ."\n</form>\n";
-// }
-
 function mothership_form_element($element, $value) {
-/*
-removed the prefix form-FOO
-i like to grap my elements ala form .FOO instead of .form-item
-*/
-  // This is also used in the installer, pre-database setup.
+	// This is also used in the installer, pre-database setup.
   $t = get_t();
-  $output = '<div class="form-item"';
+
+	//screw it now we have all these classes then lets add the form-item-type
+  $output = "<div class=\"form-item form-item-" . $element['#type'] . " \" ";
   // TODO cant this be dublicated on a page?
   //and then its not unique
    if (!empty($element['#id'])) {
