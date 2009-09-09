@@ -6,7 +6,7 @@ function mothership_form_element($element, $value) {
 	// This is also used in the installer, pre-database setup.
   $t = get_t();
 
-	//screw it now we have all these classes then lets add the form-item-type
+	//add a more specific form-item-$type 
   $output = "<div class=\"form-item form-item-" . $element['#type'] . " \" ";
   // TODO cant this be dublicated on a page?
   //and then its not unique
