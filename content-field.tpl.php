@@ -56,7 +56,6 @@
     <span><?php print t($label) ?>:&nbsp;</span>
   <?php endif;?>
 
-
     <?php $count = 1;
     foreach ($items as $delta => $item) :
       if (!$item['empty']) : ?>
@@ -70,7 +69,6 @@
       <?php $count++;
       endif;
     endforeach;?>
-
 
 </div>
 <?php endif; ?>
