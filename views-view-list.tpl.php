@@ -33,4 +33,4 @@
   <?php endforeach; ?>
 
 </<?php print $options['type']; ?>>
-<!-- /views-view-list.tpl.php -->
+<!-- /views-viewsiew-list.tpl.php -->
