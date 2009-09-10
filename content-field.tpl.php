@@ -62,8 +62,9 @@
       if (!$item['empty']) : ?>
 
           <?php if ($label_display == 'inline') { ?>
-              <?php print t($label) ?>:&nbsp;
+              <?php print t($label) ?>
           <?php } ?>
+
           <?php print $item['view'] ?>
 
       <?php $count++;
