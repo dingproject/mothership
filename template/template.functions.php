@@ -14,5 +14,3 @@ function mothership_id_safe($string) {
   }
   return $string;
 }
-
-

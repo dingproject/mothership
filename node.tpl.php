@@ -33,9 +33,6 @@ if($id_node){
 
 	<?php print format_date($node->created, 'custom', "j F Y") ?> 
 
-
-
-
 	<?php print $content;?>	
 
 	<a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print t('read more') ?></a>
@@ -50,7 +47,7 @@ if($id_node){
 //Content
 ?>
 <div<?php print $id . $classes; ?>>
-	<h1><?php print $title;?></h1>		
+	<h2><?php print $title;?></h2>		
   <?php if ($submitted){ ?>
   	<?php if ($picture) { ;?>
   		<?php print $picture; ?>  
