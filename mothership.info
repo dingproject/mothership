@@ -81,4 +81,7 @@ settings[mothership_cleanup_links_baseclass]  = 1
 
 settings[mothership_stylesheet_load_order]  = 1
 settings[mothership_stylesheet_conditional]  = 1
+
+settings[mothership_cleanup_user_verified]  = 1
+
 ;--------------------- drupal.org packaging  ----------------------------

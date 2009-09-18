@@ -409,6 +409,13 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()){
     '#default_value' => $settings['mothership_item_list_zebra'],
   );
 
+  $form['misc']['mothership_cleanup_user_verified'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Add (user verified) if user isnt verified'),
+    '#default_value' => $settings['mothership_cleanup_user_verified'],
+  );
+
+
 
 
   // -- theme development -------------------------------------
@@ -436,6 +443,9 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()){
     '#title'         => t('add regions to nodes '),
     '#default_value' => $settings['mothership_cleanup_node_regions'],
   );
+
+
+
 
 
 

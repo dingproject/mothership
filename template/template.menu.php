@@ -52,7 +52,7 @@ function mothership_menu_local_task($link, $active = FALSE) {
 TODO remove the menu-xxx classes from primary /secundary
 */
 function mothership_links($links, $attributes = array('class' => 'links')) {
- // dsm($attributes);
+// dsm($links);
   $output = '';
 
   if (count($links) > 0) {
@@ -115,5 +115,5 @@ function mothership_links($links, $attributes = array('class' => 'links')) {
 
     $output .= '</ul>';
   }
-  return $output;
+	return $output;
 }
