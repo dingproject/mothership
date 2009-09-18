@@ -1,9 +1,15 @@
 <?php
+
+//	dsm($node->links);
+	// foreach ($node->links as $key => $value) {
+	// 	print $node->links[$key]['title'];
+	// }
+
 /*
+	dsm(get_defined_vars())
 	dsm($variables['template_files']);
   dsm($node);
   dsm($node->content);
-  print_r(get_defined_vars());
   print $FIELD_NAME_rendered;
 */
 /*

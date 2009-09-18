@@ -27,7 +27,7 @@ page vars dsm(get_defined_vars())
 
 <body class="<?php print $body_classes; //can be modified in template.php mothership_preprocess_page or though the theme settings + http://drupal.org./node/171906 ?>">
 
-
+<?php if (!empty($admin)) print $admin; ?>
 <div class="header">
 
   <<?php print $site_name_element; // defined in template.php  mothership_preprocess_page ?> id="site-name">

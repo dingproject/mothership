@@ -190,6 +190,13 @@ function mothership_preprocess(&$vars, $hook) {
 	    }
 	  }
 
+		//lets grap that pesky $links array and throw it into the node
+//    $vars['node_links'] = $vars['node']['links'];
+//		dsm($vars['node']->links);			
+		
+//			dsm($vars);
+
+
 	  return $vars['template_files'];
 
 	// =======================================| /NODE |========================================
