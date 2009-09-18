@@ -411,7 +411,7 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()){
 
   $form['misc']['mothership_cleanup_user_verified'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('Add (user verified) if user isnt verified'),
+    '#title'         => t('show (user verified) if a user isnt verified'),
     '#default_value' => $settings['mothership_cleanup_user_verified'],
   );
 
