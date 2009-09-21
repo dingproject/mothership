@@ -3,7 +3,7 @@ description = Theme for cleaning up that drupal html, and provide as a super dup
 screenshot  = screenshot.png
 core        = 6.x
 engine      = phptemplate
-
+;devversion beta4
 ;--------------------- regions -----------------------------
 regions[header]         = header
 regions[content_top]    = content top
