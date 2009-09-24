@@ -28,16 +28,18 @@ ad a class="" if we have anything in the $classes var
 this is so we can have a cleaner output - no reason to have an empty <div class="" id=""> 
 */
 if($classes){
-   $classes = ' class="' . $classes . '"';
+   $classes = ' class="'. $classes . '"';
 }
 
 if($id_node){
-  $id_node = ' id="' . $id_node . '"';  
+  $id_node = ' id="'. $id_node . '"';  
 }
 ?>
 
 <?php if ($page == 0){ ?>
 <div<?php print $id_node . $classes; ?>>
+	
+
 	<?php if($node->title){	?>	
     <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
 	<?php } ?>
@@ -66,8 +68,7 @@ if($id_node){
 <?php }else{ 
 //Content
 ?>
-<div<?php print $id . $classes; ?>>
-
+<div<?php print $id_node . $classes; ?>>
 
 	<h2><?php print $title;?></h2>		
   <?php if ($submitted){ ?>
