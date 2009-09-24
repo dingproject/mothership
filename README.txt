@@ -13,6 +13,23 @@ Mothership will remove some of the flexibility that cck & views provides out of 
 If youre not a html nerd that gets high by looking at html and enjoying the cleaner code, well then this theme is NOT for you.
 
 ----------------------------------------
+  How to get this to work:
+----------------------------------------
+First of all add this line to your themes info file:
+base theme = mothership
+
+Then if you wanna use all the sweet settings (so you can toggle classes on & off the blocks, nodes etc) you need to do a little bit of fiddeling:
+
+copy the "_copy_to_your_subtheme_theme-settings.php" file into your subtheme folder and rename the file to "theme-settings.php" 
+Now go to your new subtheme and go into the settings (admin/build/themes/settings/THEMENAME), and hit "save configuration!
+Viola - now you have the configuration.
+I know its not the best way but it will all be changed in D7...
+... and this code to get subtheming settings to work is a a clean copy & paste from the zen theme btw, so its really john albins fault if its not working ;) 
+
+Theres an example theme called msdroid that have these settings predefined 
+
+
+----------------------------------------
 change the CCK output 
 ----------------------------------------
 file: content-field.tpl.php
@@ -52,12 +69,6 @@ Add 2 regions to nodes:
 	  <?php print $node_region_one;?>
 
 
-----------------------------------------
-  Subtheme settings
-----------------------------------------
-To remove classes from a subtheme you need to do a little bit of fiddeling with the theme settings:
-copy the "_copy_to_your_subtheme_theme-settings.php" file into your subtheme folder and rename the file to "theme-settings.php" 
-The settings are now enabled (this is a clean copy & paste from the zen theme btw)
 
 ----------------------------------------
   links to ref material
