@@ -1,5 +1,4 @@
 <?php
-
 //	dsm($node->links);
 	// foreach ($node->links as $key => $value) {
 	// 	print $node->links[$key]['title'];
@@ -22,7 +21,6 @@ $links splitted up
 <?php print $link_attachments; ?>
 */
 
-
 /*
 ad a class="" if we have anything in the $classes var
 this is so we can have a cleaner output - no reason to have an empty <div class="" id=""> 
@@ -36,6 +34,7 @@ if($id_node){
 }
 ?>
 
+
 <?php if ($page == 0){ ?>
 <div<?php print $id_node . $classes; ?>>
 	
@@ -43,9 +42,6 @@ if($id_node){
 	<?php if($node->title){	?>	
     <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
 	<?php } ?>
-
-
-
 
 	<?php if ($node->picture) { ;?>
     <?php print theme('imagecache', 'preset_namespace', $node->picture, $alt, $title, $attributes); ?>

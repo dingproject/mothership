@@ -445,10 +445,6 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()){
   );
 
 
-
-
-
-
   // Return form
   return $form;
   

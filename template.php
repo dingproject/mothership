@@ -119,8 +119,8 @@ function mothership_preprocess(&$vars, $hook) {
 	      $vars['styles'] .= '<!--[' . $condition . ']>' . "\n" . drupal_get_css($styles) . '<![endif]-->' . "\n";
 	    }
 	  }
-
-	  
+	
+	
 	// =======================================| /PAGE |========================================
 	}
 	elseif($hook == "node"){
@@ -194,15 +194,25 @@ function mothership_preprocess(&$vars, $hook) {
 		//lets grap $links array and throw em into some vars we actually can use
 		//comments
 		if($vars['node']->links['comment_comments']){
-			$vars['link_comment'] =  l($vars['node']->links['comment_comments']['title'], $vars['node']->links['comment_comments']['href'], array('attributes' => array('class' => 'comment','title' => $vars['node']->links['comment_comments']['attributes']['title'] )));			
+				$vars['link_comment'] =  l($vars['node']->links['comment_comments']['title'], $vars['node']->links['comment_comments']['href'], 
+					array(
+						'attributes' => array('class' => 'comment', 'title' => $vars['node']->links['comment_comments']['attributes']['title']),
+						'fragment' => $vars['node']->links['comment_comments']['fragment']
+					) 
+			);			
 		}
 
 		//comment_add
 		if($vars['node']->links['comment_add']){
-			$vars['link_comment_add'] =  l($vars['node']->links['comment_add']['title'], $vars['node']->links['comment_add']['href'], array('attributes' => array('class' => 'comment-add','title' => $vars['node']->links['comment_add']['attributes']['title'] )));			
+			$vars['link_comment_add'] =  l($vars['node']->links['comment_add']['title'], $vars['node']->links['comment_add']['href'], 
+			array(
+					'attributes' => array('class' => 'comment-add', 'title' => $vars['node']->links['comment_add']['attributes']['title']), 
+					'fragment' => 'comment-form'
+				)
+			);			
 		}
 
-		//upload_attachments
+		//attachments
 		if($vars['node']->links['upload_attachments']){
 			$vars['link_attachments'] =  l($vars['node']->links['upload_attachments']['title'], $vars['node']->links['upload_attachments']['href'], array('attributes' => array('class' => 'attachments','title' => $vars['node']->links['upload_attachments']['attributes']['title'] )));			
 		}
