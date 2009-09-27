@@ -444,7 +444,6 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()){
     '#default_value' => $settings['mothership_cleanup_node_regions'],
   );
 
-
   // Return form
   return $form;
   

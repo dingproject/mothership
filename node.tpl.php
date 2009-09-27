@@ -53,8 +53,6 @@ if($id_node){
 
 	<?php print $content;?>	
 
-	<a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print t('read more') ?></a>
-
   <?php if ($links){ ?>
     <?php print $links; ?>
   <?php }; ?>
