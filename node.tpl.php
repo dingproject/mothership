@@ -34,6 +34,15 @@ if($id_node){
 }
 ?>
 
+<?php
+	foreach ($node->links as $link_id => $link) {
+	  // we only want to move this bad boy out of $links if it is an actually link
+	  // theme('links') can accept 'links' without href  ->  http://api.drupal.org/api/function/theme_links/6
+	  if (isset($link['href'])) {
+	    $vars["{$link_id}_link"] = l($link['title'], $link['href'], $link);
+	  }
+	}
+?>
 
 <?php if ($page == 0){ ?>
 <div<?php print $id_node . $classes; ?>>

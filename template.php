@@ -192,6 +192,10 @@ function mothership_preprocess(&$vars, $hook) {
 
 		//-----------------------------------------------------
 		//lets grap $links array and throw em into some vars we actually can use
+
+
+
+/*
 		//comments
 		if($vars['node']->links['comment_comments']){
 				$vars['link_comment'] =  l($vars['node']->links['comment_comments']['title'], $vars['node']->links['comment_comments']['href'], 
@@ -226,7 +230,7 @@ function mothership_preprocess(&$vars, $hook) {
 		if($vars['node']->links['statistics_counter']){
 			$vars['statistics_counter'] = $vars['node']->links['statistics_counter']['title'];
 		}
-
+*/
 	
 	
 	  return $vars['template_files'];
