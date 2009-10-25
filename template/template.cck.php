@@ -1,7 +1,10 @@
-<?php 
-/* =====================================
-  CCK
-* ------------------------------------- */
+<?php
+// $Id$
+/**
+ * @file
+ * CCK mothership overwrites
+ */
+
 
 /**
  * Theme function for the 'generic' single file formatter.
@@ -18,7 +21,7 @@ function mothership_filefield_file($file) {
 
   // Set options as per anchor format described at
   // http://microformats.org/wiki/file-format-examples
-  // TODO: Possibly move to until I move to the more complex format described 
+  // TODO: Possibly move to until I move to the more complex format described
   // at http://darrelopry.com/story/microformats-and-media-rfc-if-you-js-or-css
   $options = array(
     'attributes' => array(
@@ -38,7 +41,7 @@ function mothership_filefield_file($file) {
 
 //  return '<div class="filefield-file clear-block">'. $icon . l($link_text, $url, $options) .'</div>';
 
-  return l($icon.'<span>'.$link_text.'</span>', $url, $options= array('html'=>TRUE));
+  return l($icon . '<span>' . $link_text . '</span>', $url, $options= array('html' => TRUE));
 }
 
 

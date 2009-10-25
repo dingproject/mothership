@@ -65,8 +65,8 @@ comments.tpl  modifies the <?php print $classes ?> normal this is added to the o
 ----------------------------------------
 Add 2 regions to nodes:
   this feature will add 2 regions to your node.tpl.
-	  <?php print $node_region_two;?>	
-	  <?php print $node_region_one;?>
+    <?php print $node_region_two;?>  
+    <?php print $node_region_one;?>
 
 
 

@@ -2,7 +2,8 @@
 // $Id$
 
 /**
- * @file user-profile-category.tpl.php
+ * @file
+ * user-profile-category.tpl.php
  * Default theme implementation to present profile categories (groups of
  * profile items).
  *

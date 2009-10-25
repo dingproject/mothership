@@ -1,20 +1,23 @@
-<?php 
-/* =====================================
-  Forms 
-* ------------------------------------- */
+<?php
+// $Id$
+/**
+ * @file
+ * form mothership overwrites
+ */
+
 function mothership_form_element($element, $value) {
-	// This is also used in the installer, pre-database setup.
+  // This is also used in the installer, pre-database setup.
   $t = get_t();
 
-	//add a more specific form-item-$type 
+  //add a more specific form-item-$type
   $output = "<div class=\"form-item form-item-" . $element['#type'] . " \" ";
   // TODO cant this be dublicated on a page?
   //and then its not unique
-   if (!empty($element['#id'])) {
+  if (!empty($element['#id'])) {
     $output .= ' id="'. $element['#id'] .'-wrapper"';
-   }
+  }
   $output .= ">\n";
-   $required = !empty($element['#required']) ? '<span class="form-required" title="'. $t('This field is required.') .'">*</span>' : '';
+  $required = !empty($element['#required']) ? '<span class="form-required" title="'. $t('This field is required.') .'">*</span>' : '';
 
   if (!empty($element['#title'])) {
     $title = $element['#title'];
@@ -25,8 +28,8 @@ function mothership_form_element($element, $value) {
       $output .= ' <label>'. $t('!title: !required', array('!title' => filter_xss_admin($title), '!required' => $required)) ."</label>\n";
     }
   }
-  //TODO test to see if this is clean text - then we might need a <span> 
-  //if we need to catch the content with 
+  //TODO test to see if this is clean text - then we might need a <span>
+  //if we need to catch the content with
   $output .= "$value\n";
 
   if (!empty($element['#description'])) {
@@ -38,11 +41,11 @@ function mothership_form_element($element, $value) {
   return $output;
 }
 
-/*and size is not set to 20 so we might have a changce to style the little fucker*/
+/* and size is not set to 20 so we might have a chance to style the it */
 function mothership_file($element) {
   _form_set_class($element, array('file'));
   return theme('form_element', $element, '<input type="file" name="'. $element['#name'] .'"'. ($element['#attributes'] ? ' '. drupal_attributes($element['#attributes']) : '') .' id="'. $element['#id'] .'"  />');
-/*size="20"*/
+/* size="20" */
 }
 
 function mothership_checkbox($element) {
@@ -64,8 +67,8 @@ function mothership_checkbox($element) {
 }
 
 function mothership_fieldset($element) {
-  
-  $element['#attributes']['class'] .= ''.$element['#array_parents']['0'];
+
+  $element['#attributes']['class'] .= '' . $element['#array_parents']['0'];
 
   if (!empty($element['#collapsible'])) {
     drupal_add_js('misc/collapse.js');
@@ -95,7 +98,7 @@ function mothership_button($element) {
   }
 
   // We here wrap the output with a div + span tag
-  return '<div class="form-button"><span><input type="submit" '. (empty($element['#name']) ? '' : 'name="'. $element['#name'] .'" ')  .'id="'. $element['#id'].'" value="'. check_plain($element['#value']) .'" '. drupal_attributes($element['#attributes']) ." /></span></div>\n";
+  return '<div class="form-button"><span><input type="submit" ' . (empty($element['#name']) ? '' : 'name="'. $element['#name'] .'" ')  . 'id="' . $element['#id'] . '" value="'. check_plain($element['#value']) .'" ' . drupal_attributes($element['#attributes']) ." /></span></div>\n";
 }
 
 function mothership_image_button($element) {

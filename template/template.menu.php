@@ -1,26 +1,31 @@
-<?php 
-/*--------------------------------------------
-  MENU
---------------------------------------------*/
+<?php
+// $Id$
+/**
+ * @file
+ * menu mothership overwrites
+ */
+
 function mothership_menu_tree($tree) {
-  if(theme_get_setting('mothership_cleanup_menu_baseclass')){
-    return '<ul class="menu">'. $tree .'</ul>';   
-  }else{
-    return '<ul>'. $tree .'</ul>';       
+  if (theme_get_setting('mothership_cleanup_menu_baseclass')) {
+    return '<ul class="menu">'. $tree .'</ul>';
+  }
+  else{
+    return '<ul>'. $tree .'</ul>';
   }
 
 }
 
 function mothership_menu_item($link, $has_children, $menu = '', $in_active_trail = FALSE, $extra_class = NULL) {
 
-    if(theme_get_setting('mothership_cleanup_menu_leafs')){
+    if (theme_get_setting('mothership_cleanup_menu_leafs')) {
       $class = ($menu ? 'expanded' : ($has_children ? 'collapsed' : 'leaf'));
     }
 
     if (!empty($extra_class) AND theme_get_setting('mothership_cleanup_menu_classes_first_last')) {
-      if($class){
+      if ($class) {
         $class .= ' '. $extra_class;
-      }else{
+      }
+      else{
         $class .= $extra_class;
       }
 
@@ -30,35 +35,36 @@ function mothership_menu_item($link, $has_children, $menu = '', $in_active_trail
       $class .= ' active-trail';
     }
 
-    if($class){
-      return '<li class="'. $class .'">'. $link . $menu ."</li>\n";  
-    }else{
-      return '<li>'. $link . $menu ."</li>\n";  
+    if ($class) {
+      return '<li class="'. $class .'">'. $link . $menu ."</li>\n";
     }
-    
+    else{
+      return '<li>'. $link . $menu ."</li>\n";
+    }
+
 
 }
 
 function mothership_menu_local_task($link, $active = FALSE) {
-  if(theme_get_setting('mothership_cleanup_menu_classes_active')){
+  if (theme_get_setting('mothership_cleanup_menu_classes_active')) {
     return '<li '. ($active ? 'class="active" ' : '') .'>'. $link ."</li>\n";
-  }else{
-    return '<li>'. $link ."</li>\n";    
-  }  
+  }
+  else{
+    return '<li>'. $link ."</li>\n";
+  }
 }
- 
- 
- /*
-TODO remove the menu-xxx classes from primary /secundary
-*/
+
+
+/*  TODO remove the menu-xxx classes from primary /secundary */
 function mothership_links($links, $attributes = array('class' => 'links')) {
 // dsm($links);
   $output = '';
 
   if (count($links) > 0) {
-    if(theme_get_setting('mothership_cleanup_links_baseclass')){
+    if (theme_get_setting('mothership_cleanup_links_baseclass')) {
       $output = '<ul'. drupal_attributes($attributes) .'>';
-    }else{
+    }
+    else{
       $output = '<ul>';
     }
     $num_links = count($links);
@@ -66,7 +72,7 @@ function mothership_links($links, $attributes = array('class' => 'links')) {
 
     foreach ($links as $key => $link) {
       $class = $key;
-      if(theme_get_setting('mothership_cleanup_menu_classes_first_last')){
+      if (theme_get_setting('mothership_cleanup_menu_classes_first_last')) {
         // Add first, last and active classes to the list of links to help out themers.
         if ($i == 1) {
           $class .= ' first';
@@ -76,24 +82,24 @@ function mothership_links($links, $attributes = array('class' => 'links')) {
         }
       }
 
-      if(theme_get_setting('mothership_cleanup_menu_classes_active')){
+      if (theme_get_setting('mothership_cleanup_menu_classes_active')) {
         if (isset($link['href']) && ($link['href'] == $_GET['q'] || ($link['href'] == '<front>' && drupal_is_front_page()))) {
           $class .= ' active';
         }
       }
-      
+
       if (isset($link['href'])) {
         // add active class for containing <li> and <a> if active-trail is set on the link itself
-        if(theme_get_setting('mothership_menu_classes_active')){
+        if (theme_get_setting('mothership_menu_classes_active')) {
           if (strpos($link['attributes']['class'], 'active-trail') !== FALSE && strpos($class, 'active') === FALSE) {
-             $class .= ' active';
-             $link['attributes']['class'] .= ' active';
-           }
+            $class .= ' active';
+            $link['attributes']['class'] .= ' active';
+          }
         }
         // Pass in $link as $options, they share the same keys.
         $link = l($link['title'], $link['href'], $link);
       }
-      else if (!empty($link['title'])) {
+      elseif (!empty($link['title'])) {
         // Some links are actually not links, but we wrap these in <span> for adding title and class attributes
         if (empty($link['html'])) {
           $link['title'] = check_plain($link['title']);
@@ -115,5 +121,5 @@ function mothership_links($links, $attributes = array('class' => 'links')) {
 
     $output .= '</ul>';
   }
-	return $output;
+  return $output;
 }

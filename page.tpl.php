@@ -1,13 +1,19 @@
 <?php
-/*
-documentation:
-  http://api.drupal.org/api/file/modules/system/page.tpl.php
--------------------------------------
-page vars dsm(get_defined_vars())
--------------------------------------
-<?php print $base_path; ?>
-<?php print $is_front ?>
-*/
+// $Id$
+/* *
+ * @file
+ * page.tpl.php
+ */
+
+/**
+ * documentation:
+ * http://api.drupal.org/api/file/modules/system/page.tpl.php
+ * -------------------------------------
+ * page vars dsm(get_defined_vars())
+ * -------------------------------------
+ * <?php print $base_path; ?>
+ * <?php print $is_front ?>
+ */
 ?>
 <?php // dsm(get_defined_vars()) ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -42,13 +48,13 @@ page vars dsm(get_defined_vars())
   <?php if ($header) { ?>
     <?php print $header; ?>
   <?php } ?>
-  
-  <?php if ($primary_links){ ?>
+
+  <?php if ($primary_links) { ?>
     <?php print theme('links', $primary_links); ?>
   <?php } ?>
 
-  <?php if ($breadcrumb){ ?>
-    <?php print $breadcrumb; // themename_breadcrumb in template.php?> 
+  <?php if ($breadcrumb) { ?>
+    <?php print $breadcrumb; // themename_breadcrumb in template.php?>
   <?php } ?>
 
 </div>
@@ -60,17 +66,16 @@ page vars dsm(get_defined_vars())
 
   </div>
   <div class="main">
-    	<?php if ($help OR $messages) { ?>
-      	  <?php print $help ?>
-      	  <?php print $messages ?>
-    	<?php } ?>
+      <?php if ($help OR $messages) { ?>
+          <?php print $help ?>
+          <?php print $messages ?>
+      <?php } ?>
 
-      <?php if ($tabs){ ?>
+      <?php if ($tabs) { ?>
         <?php print $tabs; ?>
       <?php }; ?>
 
-
-    <?php if ($title AND (arg(0)=="node" AND is_numeric(arg(1)) AND arg(2)!="")) { /*TODO: moved out to the template.php*/ ?>
+      <?php if ($title AND (arg(0)=="node" AND is_numeric(arg(1)) AND arg(2)!="")) { /* TODO: moved out to the template.php */ ?>
       <h1><?php print $title; ?></h1>
     <?php } ?>
 
@@ -83,26 +88,26 @@ page vars dsm(get_defined_vars())
       <?php print $right; ?>
     <?php } ?>
 
-    <?php if($user->uid){ ?>
-    <?php 
+    <?php if ($user->uid) { ?>
+    <?php
       //user picture
-      if($user->picture){
-        $userimage ='<img src="/'.$user->picture.'">';                      
-        print l($userimage, 'user/'.$user->uid, $options= array('html'=>TRUE));  
-      }  
+      if ($user->picture) {
+        $userimage = '<img src="/' . $user->picture . '">';
+        print l($userimage, 'user/' . $user->uid, $options = array('html' => TRUE));
+      }
     ?>
 
-    <?php print l($user->name, 'user/'.$user->uid.'/edit');  ?>
+    <?php print l($user->name, 'user/' . $user->uid . '/edit');  ?>
     <?php print $user->mail ;?>
-    (<?php print l(t('edit'), 'user/'.$user->uid.'/edit');  ?>
+    (<?php print l(t('edit'), 'user/' . $user->uid . '/edit');  ?>
     <?php print l(t('log out'), 'logout');  ?>)
     <?php print $user->profile_bio;?>
 
-    <?php 
+    <?php
     //ROLES
       foreach ($user->roles as $key => $value) {
-        if($key!="2"){//no reason to show the basic authenticated role
-          print $user->roles[$key].' ('.$key.')<br/>';  
+        if ($key!="2") {//no reason to show the basic authenticated role
+          print $user->roles[$key] . ' (' . $key . ')<br/>';
         }
       }
     ?>
@@ -114,7 +119,7 @@ page vars dsm(get_defined_vars())
 </div>
 
 <div class="footer">
-  
+
   <?php if ($footer_message) { ?>
     <?php print $footer_message; ?>
   <?php } ?>

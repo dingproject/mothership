@@ -1,8 +1,8 @@
 <?php
 // $Id$
-
 /**
- * @file search-theme-form.tpl.php
+ * @file
+ * search-theme-form.tpl.php
  * Default theme implementation for displaying a search form directly into the
  * theme layout. Not to be confused with the search block or the search page.
  *
@@ -32,11 +32,10 @@
  *
  * @see template_preprocess_search_theme_form()
  */
-/*
-<div id="search" class="container-inline">
-  <?php print $search_form; ?>
-</div>
-
-*/
+/**
+ * <div id="search" class="container-inline">
+ *  <?php print $search_form; ?>
+ * </div>
+ */
 ?>
-<?php print $search_form; ?>
+<?php print $search_form;

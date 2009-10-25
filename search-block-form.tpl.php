@@ -2,7 +2,8 @@
 // $Id$
 
 /**
- * @file search-block-form.tpl.php
+ * @file
+ * search-block-form.tpl.php
  * Default theme implementation for displaying a search form within a block region.
  *
  * Available variables:
@@ -30,10 +31,9 @@
  *   <?php print '<pre>'. check_plain(print_r($search, 1)) .'</pre>'; ?>
  *
  * @see template_preprocess_search_block_form()
-*<div class="container-inline">
-*  <?php print $search_form; ?>
-*</div>
-*
+ * <div class="container-inline">
+ *  <?php print $search_form; ?>
+ * </div>
  */
 ?>
-<?php print $search_form; ?>
+<?php print $search_form;

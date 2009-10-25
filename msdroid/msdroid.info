@@ -13,7 +13,7 @@ regions[node_region_two] = node region two
 regions[left]           = left sidebar
 regions[right]          = right sidebar
 regions[footer]         = footer
-   
+
 ;--------------------- features ----------------------------
 features[] = logo
 features[] = name

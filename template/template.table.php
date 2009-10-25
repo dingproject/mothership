@@ -1,4 +1,10 @@
 <?php
+// $Id$
+/**
+ * @file
+ * Table mothership overwrites
+ */
+
 function mothership_table($header, $rows, $attributes = array(), $caption = NULL) {
   // Add sticky headers, if applicable.
   if (count($header)) {
@@ -21,26 +27,26 @@ function mothership_table($header, $rows, $attributes = array(), $caption = NULL
     // tags. Using ternary operator to check and see if we have any rows.
     $output .= (count($rows) ? ' <thead><tr>' : ' <tr>');
 
-		$i = 0; //header count
+    $i = 0; //header count
     foreach ($header as $cell) {
-			// adds odd even, count and name for a th
-		    $zebra = $i % 2 ? 'even' : 'odd';
-		    if (is_array($cell)) {
-		      if (isset($cell['class'])) {
-		        $cell['class'] .= " $zebra count-".$i ." ". mothership_id_safe($cell['data']) ; 
-		      }
-		      else {
-		        $cell['class'] = $zebra ." count-".$i ." ". mothership_id_safe($cell['data']) ; 
-		      }
-		    }
-		    else {
-		      $cell = array('data' => $cell, 'class' => $zebra);
-		    }
+      // adds odd even, count and name for a th
+      $zebra = $i % 2 ? 'even' : 'odd';
+      if (is_array($cell)) {
+        if (isset($cell['class'])) {
+          $cell['class'] .= " $zebra count-" . $i . " " . mothership_id_safe($cell['data']) ;
+        }
+        else {
+          $cell['class'] = $zebra ." count-" . $i . " " . mothership_id_safe($cell['data']) ;
+        }
+      }
+      else {
+        $cell = array('data' => $cell, 'class' => $zebra);
+      }
 
       $cell = tablesort_header($cell, $header, $ts);
       $output .= _theme_table_cell($cell, TRUE);
 
-			 $i++; 
+      $i++;
     }
     // Using ternary operator to close the tags based on whether or not there are rows
     $output .= (count($rows) ? " </tr></thead>\n" : "</tr>\n");
