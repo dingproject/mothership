@@ -26,7 +26,7 @@ function mothership_preprocess_views_view_unformatted(&$vars) {
       $vars['classes'][$id] .=  ($id % 2 ? ' even' : ' odd');
     }
     if ($id == 0 AND theme_get_setting(mothership_cleanup_views_first_last)) {
-      $vars['classes'][$id] .= ' first';
+      $vars['classes'][$id] .= 'first';
     }
   }
   if (theme_get_setting(mothership_cleanup_views_first_last)) {

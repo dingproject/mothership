@@ -12,7 +12,7 @@ if (theme_get_setting('mothership_rebuild_registry')) {
 }
 
 /**
- *  include template overwrites
+ * include template overwrites
  */
     include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.functions.php';
     include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.form.php';
@@ -26,7 +26,6 @@ if (theme_get_setting('mothership_rebuild_registry')) {
  * preprocess
  */
 function mothership_preprocess(&$vars, $hook) {
-
   if ($hook == "page") {
   // =======================================| page |========================================
 
@@ -286,7 +285,7 @@ function mothership_preprocess(&$vars, $hook) {
 
     // Render block classes.
     $vars['classes'] = implode(' ', $classes);
-  //  $vars['classes'] =  mothership_id_safe($vars['classes']);
+    // $vars['classes'] =  mothership_id_safe($vars['classes']);
     // id for block
     if (theme_get_setting('mothership_cleanup_block_id')) {
       $id_block = array();
@@ -377,7 +376,3 @@ function mothership_preprocess(&$vars, $hook) {
     // =======================================| /COMMENT |========================================
   }
 }
-
-
-
-
