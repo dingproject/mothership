@@ -72,7 +72,7 @@ else{
 ?>
 <div<?php print $id_node . $classes; ?>>
 
-  <h2><?php print $title;?></h2>
+  <h1><?php print $title;?></h1>
   <?php if ($submitted) { ?>
     <?php if ($picture) { ?>
       <?php print $picture; ?>

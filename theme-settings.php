@@ -427,7 +427,7 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()) {
     '#type'          => 'checkbox',
     '#title'         => t('ie specific stylesheet conditions in the .info file'),
     '#default_value' => $settings['mothership_stylesheet_conditional'],
-    '#description'   => t('.info file: <strong>stylesheets[ condition ][all][] = ie.css</strong>. exampels [if lt IE 7] , [if IE 7] , [if IE 6]'),
+    '#description'   => t('.info file: <strong>ie stylesheets[ condition ][all][] = ie.css</strong> condition exampels [if lt IE 7] , [if IE 7] , [if IE 6]'),
   );
 
 

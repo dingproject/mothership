@@ -75,10 +75,9 @@
         <?php print $tabs; ?>
       <?php }; ?>
 
-      <?php if ($title AND (arg(0)=="node" AND is_numeric(arg(1)) AND arg(2)!="")) { /* TODO: moved out to the template.php */ ?>
-      <h1><?php print $title; ?></h1>
-    <?php } ?>
-
+      <?php if ($title AND (arg(0) != "node")) {  ?>
+        <h1><?php print $title; ?></h1>
+      <?php } ?>
 
       <?php print $content; ?>
 
