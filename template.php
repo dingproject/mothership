@@ -5,6 +5,19 @@
  * template includes + preprocess
  */
 
+function mothership_theme($existing, $type, $theme, $path) {
+
+//  $existing['views_view_table__viewname']['override preprocess functions'] = TRUE;
+/* 
+  return array(
+    'comment_form' => array(
+      'arguments' => array ('form' => NULL),
+      ),
+   );
+*/
+
+}
+
 
 // Auto-rebuild the theme registry during theme development.
 if (theme_get_setting('mothership_rebuild_registry')) {

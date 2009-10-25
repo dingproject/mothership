@@ -16,6 +16,7 @@
  * @ingroup views_templates
  */
 ?>
+<!-- views-view-table.tpl.php -->
 <table class="<?php print $class; ?>">
   <?php if (!empty($title)) : ?>
     <caption><?php print $title; ?></caption>
@@ -23,7 +24,7 @@
   <thead>
     <tr>
       <?php foreach ($header as $field => $label): ?>
-        <th class="views-field views-field-<?php print $fields[$field]; ?>">
+        <th class="<?php print $fields[$field]; ?>">
           <?php print $label; ?>
         </th>
       <?php endforeach; ?>
@@ -31,9 +32,9 @@
   </thead>
   <tbody>
     <?php foreach ($rows as $count => $row): ?>
-      <tr class="<?php print implode(' ', $row_classes[$count]); ?>">
+        <tr class="<?php print implode(' ', $row_classes[$count]); ?>">
         <?php foreach ($row as $field => $content): ?>
-          <td class="views-field views-field-<?php print $fields[$field]; ?>">
+          <td class="<?php print $fields[$field]; ?>">
             <?php print $content; ?>
           </td>
         <?php endforeach; ?>
@@ -41,3 +42,4 @@
     <?php endforeach; ?>
   </tbody>
 </table>
+<!--/views-view-table.tpl.php -->

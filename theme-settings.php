@@ -287,31 +287,65 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()) {
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   );
+  //list
+  $form['views']['list'] = array(
+    '#type'          => 'fieldset',
+    '#title'         => t('List'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
 
-  $form['views']['mothership_cleanup_views_first_last'] = array(
+  $form['views']['list']['mothership_cleanup_views_first_last'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('add first & last classes from views list'),
     '#default_value' => $settings['mothership_cleanup_views_first_last'],
   );
 
-  $form['views']['mothership_cleanup_views_zebra'] = array(
+  $form['views']['list']['mothership_cleanup_views_zebra'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('add odd / even class '),
     '#default_value' => $settings['mothership_cleanup_views_zebra'],
   );
 
-  $form['views']['mothership_cleanup_views_row_ident'] = array(
+  $form['views']['list']['mothership_cleanup_views_row_ident'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('add views-row '),
     '#default_value' => $settings['mothership_cleanup_views_row_ident'],
   );
 
-  $form['views']['mothership_cleanup_views_grid_type'] = array(
-    '#type'          => 'checkbox',
-    '#title'         => t('grid '),
-    '#default_value' => $settings['mothership_cleanup_views_row_ident'],
+  //tables
+  $form['views']['table'] = array(
+    '#type'          => 'fieldset',
+    '#title'         => t('Tables'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
   );
 
+  $form['views']['table']['mothership_cleanup_views_table_first_last'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('add first & last class in table rows'),
+    '#default_value' => $settings['mothership_cleanup_views_table_first_last'],
+  );
+
+  $form['views']['table']['mothership_cleanup_views_table_zebra'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('add odd / even class to the table rows '),
+    '#default_value' => $settings['mothership_cleanup_views_table_zebra'],
+  );
+
+  $form['views']['table']['mothership_cleanup_views_table_row_count'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('row-x to the table rows'),
+    '#default_value' => $settings['mothership_cleanup_views_table_row_count'],
+  );
+
+  //grid
+  $form['views']['grid'] = array(
+    '#type'          => 'fieldset',
+    '#title'         => t('Grid'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
 
 
 

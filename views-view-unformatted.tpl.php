@@ -17,7 +17,7 @@
   foreach ($rows as $id => $row) {
     print "  <div";
     if ($classes[$id]) {
-      print 'class="' . $classes[$id] . '"';
+      print ' class="' . $classes[$id] . '"';
     }
     print ">";
 
