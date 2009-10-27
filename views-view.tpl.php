@@ -23,7 +23,7 @@
 ?>
 
 <!--views-view.tpl.php-->
-<div class="view view-<?php print $css_name; ?>"> <?php /* we need the view class for the admin hover */ ?>
+<div class="view view-<?php print $css_name; ?> <?php print $skinr; ?>"> <?php /* we need the view class for the admin hover */ ?>
 
 <?php if ($admin_links): ?>
   <!--views admin links-->

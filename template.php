@@ -27,6 +27,7 @@ if (theme_get_setting('mothership_rebuild_registry')) {
  * preprocess
  */
 function mothership_preprocess(&$vars, $hook) {
+
   if ($hook == "page") {
   // =======================================| page |========================================
 
@@ -172,9 +173,13 @@ function mothership_preprocess(&$vars, $hook) {
         $classes[] = 'node-' . $vars['type'];
       }
     }
-
+    //skinr
+    if( module_exists(skinr) ) {
+        $classes[] = $vars['skinr'];
+    }
+    
     $vars['classes'] = implode(' ', $classes);
-
+    
     // css id for the node
     if (theme_get_setting('mothership_cleanup_node_id')) {
       $id_node = array();
@@ -284,6 +289,11 @@ function mothership_preprocess(&$vars, $hook) {
       }
     }
 
+    //skinr
+    if( module_exists(skinr) ) {
+        $classes[] = $vars['skinr'];
+    }
+
     // Render block classes.
     $vars['classes'] = implode(' ', $classes);
     // $vars['classes'] =  mothership_id_safe($vars['classes']);
@@ -376,4 +386,23 @@ function mothership_preprocess(&$vars, $hook) {
     $vars['classes'] = implode(' ', $classes);
     // =======================================| /COMMENT |========================================
   }
+  elseif ($hook == "comment_wrapper"){
+    // =======================================| COMMENTWRAPPER |========================================
+
+    $id_commentwrap = array();
+    $id_commentwrap[] = 'comments';
+    $vars['id_commentwrap'] = implode(' ', $id_commentwrap);
+    $vars['id_commentwrap'] =  mothership_id_safe($vars['id_commentwrap']);
+
+    $classes = array();  
+    //skinr
+    if( module_exists(skinr) ) {
+        $classes[] = $vars['skinr'];
+    }
+
+    $vars['classes'] = implode(' ', $classes);    
+    // =======================================| COMMENTWRAPPER |========================================
+  }
+
+
 }
