@@ -5,8 +5,6 @@
  * template includes + preprocess
  */
 
-
-
 // Auto-rebuild the theme registry during theme development.
 if (theme_get_setting('mothership_rebuild_registry')) {
   drupal_rebuild_theme_registry();
@@ -15,19 +13,18 @@ if (theme_get_setting('mothership_rebuild_registry')) {
 /**
  * include template overwrites
  */
-    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.functions.php';
-    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.form.php';
-    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.cck.php';
-    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.table.php';
-    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.alternatives.php';
-    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.menu.php';
-    include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.views.php';
+  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.functions.php';
+  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.form.php';
+  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.cck.php';
+  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.table.php';
+  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.alternatives.php';
+  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.menu.php';
+  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.views.php';
 
 /**
  * preprocess
  */
 function mothership_preprocess(&$vars, $hook) {
-
   if ($hook == "page") {
   // =======================================| page |========================================
 
@@ -51,7 +48,9 @@ function mothership_preprocess(&$vars, $hook) {
         $path = drupal_get_path_alias($_GET['q']);
         list($section, ) = explode('/', $path, 2);
         $body_classes[] = mothership_id_safe('page-' . $path);
+        $body_classes[] = mothership_id_safe('page-' . $path, 'remove-numbers');
         $body_classes[] = mothership_id_safe('section-' . $section);
+        $body_classes[] = mothership_id_safe('section-' . $section, 'remove-numbers');
       }
 
       //add actions
