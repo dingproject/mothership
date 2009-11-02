@@ -139,7 +139,7 @@ function mothership_preprocess(&$vars, $hook) {
     }
 
     $vars['body_classes'] = implode(' ', $body_classes); // Concatenate with spaces
-    kpr($vars['body_classes']);
+//    kpr($vars['body_classes']);
     // ** ------------------------------------------------------------------------ **
     // style sheets load order & ie fix
     // kudos to al-steffen for figuring this out :)
