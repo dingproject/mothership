@@ -27,7 +27,7 @@ if (theme_get_setting('mothership_rebuild_registry')) {
 function mothership_preprocess(&$vars, $hook) {
   if ($hook == "page") {
   // =======================================| page |========================================
-
+    
     // Add HTML tag name for title tag. so it can shift from a h1 to a div if its the frontpage
     $vars['site_name_element'] = $vars['is_front'] ? 'h1' : 'div';
 
@@ -37,38 +37,109 @@ function mothership_preprocess(&$vars, $hook) {
 
     $body_classes = array($vars['body_classes']);
 
-    //do we wanna kill all the goodies that comes with drupal?
+    //do we wanna kill all the goodies that comes from drupal?
     if (theme_get_setting('mothership_cleanup_body_remove')) {
+      //clean the body_classes
       $body_classes = " ";
-    }
+      $body_classes = array(); 
 
-    if (!$vars['is_front']) {
-      // Add unique path classes for each page
-      if (theme_get_setting('mothership_cleanup_body_path')) {
-        $path = drupal_get_path_alias($_GET['q']);
-        list($section, ) = explode('/', $path, 2);
-        $body_classes[] = mothership_id_safe('page-' . $path);
-        $body_classes[] = mothership_id_safe('page-' . $path, 'remove-numbers');
-        $body_classes[] = mothership_id_safe('section-' . $section);
-        $body_classes[] = mothership_id_safe('section-' . $section, 'remove-numbers');
+      //front
+      if (theme_get_setting('mothership_cleanup_body_front') ){
+        $body_classes[] = $vars['is_front'] ? 'front' : '';    
+      } 
+
+      if (theme_get_setting('mothership_cleanup_body_front_not') ){
+        $body_classes[] = $vars['is_front'] ? '' : 'not-front';    
+      } 
+
+      //logged-in
+      if (theme_get_setting('mothership_cleanup_body_loggedin') ){
+        $body_classes[] = $vars['logged_in'] ? 'logged-in' : '';
       }
 
-      //add actions
-      if (theme_get_setting('mothership_cleanup_body_actions')) {
-        if (arg(0) == 'node') {
-          if (arg(1) == 'add') {
-            $body_classes[] = 'action-node-add';
-          }
-          elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
-            $body_classes[] = 'function-node-' . arg(2); // Add 'action-node-edit' or 'action-node-delete'
-          }
+      if (theme_get_setting('mothership_cleanup_body_loggedin_not') ){
+        $body_classes[] = $vars['logged_in'] ? '' : 'not-logged-in';
+      }
+
+      //page-arg(0)
+      if (theme_get_setting('mothership_cleanup_body_pagearg_one') ){  
+//        $body_classes[] = mothership_id_safe('page-' . arg(0));                  
+      }  
+
+      //node-type-[TYPE]
+      if (theme_get_setting('mothership_cleanup_body_nodetype') ){
+        // If on an individual node page, add the node type.
+        if (isset($vars['node']) && $vars['node']->type) {
+          $body_classes[] = 'node-type-'. $vars['node']->type;
+        }
+      }  
+
+      //layout
+      if (theme_get_setting('mothership_cleanup_body_layout') ){
+        // Add information about the number of sidebars.
+        if ($vars['layout'] == 'both') {
+          $body_classes[] = 'two-sidebars';
+        }
+        elseif ($vars['layout'] == 'none') {
+          $body_classes[] = 'no-sidebars';
+        }
+        else {
+          $body_classes[] = 'one-sidebar sidebar-'. $vars['layout'];
         }
       }
 
     }
 
-    $vars['body_classes'] = implode(' ', $body_classes); // Concatenate with spaces
+    $path = drupal_get_path_alias($_GET['q']);
+    if($path){
+      // Add unique path classes for each page
+      if (theme_get_setting('mothership_cleanup_body_add_path')) {
+        $body_classes[] = mothership_id_safe('path-' . $path);          
+      }
+    }
 
+    $path_requist = explode('/', $_SERVER['REQUEST_URI']);
+    //pathlast
+    if (theme_get_setting('mothership_cleanup_body_add_last') AND !$vars['is_front']) {
+      $body_classes[] = mothership_id_safe('pathlast-' . end($path_requist) );
+    }
+
+
+    if (theme_get_setting('mothership_cleanup_body_pagearg_one') ){  
+      $body_classes[] = mothership_id_safe('page-' . $path_requist['1']);
+    }  
+    
+
+    
+    //adds class user-foobar without user id
+    if(arg(0) == "user"){
+      $body_classes[] = mothership_id_safe( $path, 'remove-numbers');
+    }
+
+    //class action-node
+    if (theme_get_setting('mothership_cleanup_body_actions')) {
+      if (arg(0) == 'node') {
+        if (arg(1) == 'add') {
+          $body_classes[] = 'action-node-add';
+        }
+        elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
+          $body_classes[] = 'action-node-' . arg(2); // Add 'action-node-edit' or 'action-node-delete'
+        }
+      }
+    }
+     
+
+
+
+    
+
+    //is the admin module active
+    if($vars['admin'] AND theme_get_setting('mothership_cleanup_body_admin')){
+      $body_classes[] = "adminmenu";
+    }
+
+    $vars['body_classes'] = implode(' ', $body_classes); // Concatenate with spaces
+    kpr($vars['body_classes']);
     // ** ------------------------------------------------------------------------ **
     // style sheets load order & ie fix
     // kudos to al-steffen for figuring this out :)

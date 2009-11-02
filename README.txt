@@ -114,6 +114,30 @@ class names to th so its possible to add widths for the table data
 the names for the classes is the same as the content. 
 
 
+body classes
+=========================
+modifies the body classes
+
+remove drupals base classes
+--------------------
+removes 
+
+Add path based class
+--------------------
+  front/not-front 
+  logged-in 
+  page-user/page-node 
+  one-sidebar sidebar-right sidebar-left 
+  
+  page-user- $path
+
+Add node actions classes: add, edit, delete
+----------------------------------------------------
+ads "action-node-edit" / "action-node-delete" / "action-node-add"
+
+
+
+
 ----------------------------------------
   links to ref material
 ----------------------------------------

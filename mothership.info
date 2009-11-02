@@ -30,8 +30,22 @@ features[] = secondary_links
 ;ie stylesheets[if IE6 ][all][] = ie6.css
 
 ;--------------------- settings ----------------------------
-settings[mothership_cleanup_body_path]    = 1
+settings[mothership_cleanup_body_remove] = 0
+settings[mothership_cleanup_body_front] = 0
+settings[mothership_cleanup_body_front_not] = 0
+settings[mothership_cleanup_body_loggedin] = 0
+settings[mothership_cleanup_body_loggedin_not] = 0
+settings[mothership_cleanup_body_pagearg_one] = 0
+settings[mothership_cleanup_body_nodetype] = 0
+settings[mothership_cleanup_body_layout] = 0
+
+
 settings[mothership_cleanup_body_actions] = 1
+settings[mothership_cleanup_body_path]    = 1
+settings[mothership_cleanup_body_add_path] =1
+settings[mothership_cleanup_body_add_last] = 1
+settings[mothership_cleanup_body_pagearg_one] = 0
+
 
 settings[mothership_cleanup_node_node] = 1
 settings[mothership_cleanup_node_sticky]  = 0

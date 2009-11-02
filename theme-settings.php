@@ -78,22 +78,94 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()) {
   // -- body -------------------------------------
   $form['cleanup']['body'] = array(
     '#type'          => 'fieldset',
-    '#title'         => t('body (page.tpl)'),
+    '#title'         => t('body classes (page.tpl)'),
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   );
 
-  $form['cleanup']['body']['mothership_cleanup_body_path'] = array(
+  $form['cleanup']['body']['mothership_cleanup_body_remove'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('Add path based class'),
-    '#default_value' => $settings['mothership_cleanup_body_path'],
+    '#title'         => t('Removes drupals standard body classes'),
+    '#default_value' => $settings['mothership_cleanup_body_remove'],
+  );
+
+  $form['cleanup']['body']['add'] = array(
+    '#type'          => 'fieldset',
+    '#title'         => t('Rebuild drupal standard classes:'),
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+  );
+
+
+  $form['cleanup']['body']['add']['mothership_cleanup_body_front'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('.front : if its the frontpage '),
+    '#default_value' => $settings['mothership_cleanup_body_front'],
+  );
+
+  $form['cleanup']['body']['add']['mothership_cleanup_body_front_not'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('.not-front :if its not the frontpage'),
+    '#default_value' => $settings['mothership_cleanup_body_front_not'],
+  );
+
+  $form['cleanup']['body']['add']['mothership_cleanup_body_loggedin'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('.logged-in : if user is logged in'),
+    '#default_value' => $settings['mothership_cleanup_body_loggedin'],
+  );
+
+  $form['cleanup']['body']['add']['mothership_cleanup_body_loggedin_not'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('.not-logged-in : if user is not  logged in'),
+    '#default_value' => $settings['mothership_cleanup_body_loggedin_not'],
+  );
+
+  $form['cleanup']['body']['add']['mothership_cleanup_body_layout'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('layout class: .two-sidebars | .no-sidebars | .one-sidebar .sidebar-left/right'),
+    '#default_value' => $settings['mothership_cleanup_body_layout'],
+  );
+
+
+  $form['cleanup']['body']['add']['mothership_cleanup_body_nodetype'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('.node-type-[NODETYPE]'),
+    '#default_value' => $settings['mothership_cleanup_body_nodetype'],
+  );
+
+  $form['cleanup']['body']['mothership_cleanup_body_pagearg_one'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('.page-[1. part of the path ] '),
+    '#default_value' => $settings['mothership_cleanup_body_pagearg_one'],
+  );
+
+
+  $form['cleanup']['body']['mothership_cleanup_body_add_path'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('.path-[URL]'),
+    '#default_value' => $settings['mothership_cleanup_body_add_path'],
+  );
+  
+  $form['cleanup']['body']['mothership_cleanup_body_add_last'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('last path: .pathlast-[last]'),
+    '#default_value' => $settings['mothership_cleanup_body_add_last'],
   );
 
   $form['cleanup']['body']['mothership_cleanup_body_actions'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('Add action based classes: edit, delete'),
+    '#title'         => t('node actions: .add, .edit, .delete'),
     '#default_value' => $settings['mothership_cleanup_body_actions'],
   );
+
+  $form['cleanup']['body']['mothership_cleanup_body_admin'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('admin module active:  .adminmenu'),
+    '#default_value' => $settings['mothership_cleanup_body_admin'],
+  );
+  
+
 
   // -- node -------------------------------------
   $form['cleanup']['node'] = array(

@@ -33,7 +33,6 @@
 
 <?php if (!empty($admin)) print $admin; ?>
 <div class="header">
-
   <<?php print $site_name_element; // defined in template.php  mothership_preprocess_page ?> id="site-name">
     <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
       <?php print $site_name; ?>
