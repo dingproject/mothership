@@ -35,6 +35,14 @@ function mothership_preprocess(&$vars, $hook) {
     //  <body> classes
     // ** ------------------------------------------------------------------------ **
 
+    //lets add some more template files 
+    if($vars['node']->type){
+      $vars['template_files'][] = 'page-' . $vars['node']->type;      
+    }
+
+    kpr($vars);
+
+
     $body_classes = array($vars['body_classes']);
 
     //do we wanna kill all the goodies that comes from drupal?
@@ -124,10 +132,6 @@ function mothership_preprocess(&$vars, $hook) {
       }
     }
      
-
-
-
-    
 
     //is the admin module active
     if($vars['admin'] AND theme_get_setting('mothership_cleanup_body_admin')){
