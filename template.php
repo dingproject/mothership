@@ -61,10 +61,6 @@ function mothership_preprocess(&$vars, $hook) {
         $body_classes[] = $vars['logged_in'] ? '' : 'not-logged-in';
       }
 
-      //page-arg(0)
-      if (theme_get_setting('mothership_cleanup_body_pagearg_one') ){  
-//        $body_classes[] = mothership_id_safe('page-' . arg(0));                  
-      }  
 
       //node-type-[TYPE]
       if (theme_get_setting('mothership_cleanup_body_nodetype') ){
