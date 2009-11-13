@@ -72,14 +72,14 @@ function mothership_button($element) {
   //http://teddy.fr/blog/beautify-your-drupal-forms
   // Make sure not to overwrite classes.
   if (isset($element['#attributes']['class'])) {
-    $element['#attributes']['class'] = 'form-'. $element['#button_type'] .' '. $element['#attributes']['class'];
+    $element['#attributes']['class'] = 'form-' . $element['#button_type'] .' '. $element['#attributes']['class'];
   }
   else {
-    $element['#attributes']['class'] = 'form-'. $element['#button_type'];
+    $element['#attributes']['class'] = 'form-' . $element['#button_type'];
   }
 
   // We here wrap the output with a div + span tag
-  return '<div class="form-button"><span><input type="submit" ' . (empty($element['#name']) ? '' : 'name="'. $element['#name'] .'" ')  . 'id="' . $element['#id'] . '" value="'. check_plain($element['#value']) .'" ' . drupal_attributes($element['#attributes']) ." /></span></div>\n";
+  return '<div class="form-button ' . $element['#id'] .'"><span><input type="submit" ' . (empty($element['#name']) ? '' : 'name="'. $element['#name'] .'" ')  . 'id="' . $element['#id'] . '" value="'. check_plain($element['#value']) .'" ' . drupal_attributes($element['#attributes']) ." /></span></div>\n";
 }
 
 function mothership_image_button($element) {
@@ -99,3 +99,4 @@ function mothership_image_button($element) {
     (!empty($element['#title']) ? 'alt="'. check_plain($element['#title']) .'" title="'. check_plain($element['#title']) .'" ' : '' ) .
     "/></div>\n";
 }
+

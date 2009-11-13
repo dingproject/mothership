@@ -40,9 +40,7 @@ function mothership_preprocess(&$vars, $hook) {
       $vars['template_files'][] = 'page-' . $vars['node']->type;      
     }
 
-    kpr($vars);
-
-
+    //BOdy classes
     $body_classes = array($vars['body_classes']);
 
     //do we wanna kill all the goodies that comes from drupal?
@@ -108,13 +106,11 @@ function mothership_preprocess(&$vars, $hook) {
       $body_classes[] = mothership_id_safe('pathlast-' . end($path_requist) );
     }
 
-
     if (theme_get_setting('mothership_cleanup_body_pagearg_one') ){  
       $body_classes[] = mothership_id_safe('page-' . $path_requist['1']);
     }  
     
-
-    
+  
     //adds class user-foobar without user id
     if(arg(0) == "user"){
       $body_classes[] = mothership_id_safe( $path, 'remove-numbers');
@@ -230,9 +226,11 @@ function mothership_preprocess(&$vars, $hook) {
     if ($vars['teaser']) {
       if (theme_get_setting('mothership_cleanup_node_node')) {
         $classes[] = 'node-teaser';
+        $classes[] = 'node';
       }
       if (theme_get_setting('mothership_cleanup_node_content_type')) {
         $classes[] = 'node-teaser-' . $vars['type'];
+        $classes[] = 'node-' . $vars['type'];
       }
     }
     else{
@@ -272,9 +270,6 @@ function mothership_preprocess(&$vars, $hook) {
 
     //-----------------------------------------------------
     //lets grap $links array and throw em into some vars we actually can use
-
-
-
 /*
     //comments
     if ($vars['node']->links['comment_comments']) {

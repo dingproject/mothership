@@ -9,6 +9,7 @@ function mothership_preprocess_views_view_list(&$vars) {
 }
 
 function mothership_preprocess_views_view_unformatted(&$vars) {
+
   $view     = $vars['view'];
   $rows     = $vars['rows'];
 
