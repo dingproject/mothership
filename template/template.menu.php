@@ -7,10 +7,10 @@
 
 function mothership_menu_tree($tree) {
   if (theme_get_setting('mothership_cleanup_menu_baseclass')) {
-    return '<!--menu-->' . "\r" . '  <ul class="menu">' . "\r" . $tree . '  </ul>' . "\n  <!--/menu-->\n" ;
+    return '<!--menu-->' . "\n" . '  <ul class="menu">' . "\n" . $tree . '  </ul>' . "\n  <!--/menu-->\n" ;
   }
   else{
-    return '  <!--menu-->  <ul>'. $tree .'  </ul>\r';
+    return '<!--menu-->  <ul>' . "\n" . $tree . "\n" . '  </ul>\r';
   }
 
 }
@@ -119,7 +119,7 @@ function mothership_links($links, $attributes = array('class' => 'links')) {
       $output .= "</li>\n";
     }
 
-    $output .= '</ul>\r';
+    $output .= '</ul>' . "\n";
   }
   return $output;
 }

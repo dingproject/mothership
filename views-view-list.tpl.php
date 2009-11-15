@@ -17,7 +17,6 @@
       print ' class="' . $classes[$id] .'"';
     }
     print '>';
-    print $classes[$id];
     print $row;
 
     print '  </li>';
