@@ -3,13 +3,6 @@
 /**
  * @file
  * views-view-list.tpl.php
- * Default simple view template to display a list of rows.
- *
- * - $title : The title of this group of rows.  May be empty.
- * - $options['type'] will either be ul or ol.
- * @ingroup views_templates
-
- *  The $classes are defined in template_preprocess_views_view_list()
  */
 ?>
 <!-- views-view-list.tpl.php -->
@@ -24,7 +17,7 @@
       print ' class="' . $classes[$id] .'"';
     }
     print '>';
-
+    print $classes[$id];
     print $row;
 
     print '  </li>';
@@ -32,4 +25,4 @@
   }
 ?>
 </<?php print $options['type']; ?>>
-<!-- /views-viewsiew-list.tpl.php -->
+<!-- /views-view-list.tpl.php -->

@@ -79,9 +79,10 @@ settings[mothership_cleanup_comment_front]  = 0
 settings[mothership_cleanup_comment_loggedin]  = 0
 settings[mothership_cleanup_comment_user]  = 0
 
+settings[mothership_cleanup_views_row_identify] = 1
 settings[mothership_cleanup_views_first_last]  = 1
 settings[mothership_cleanup_views_zebra] = 0
-settings[mothership_cleanup_views_row_ident] = 1
+settings[mothership_cleanup_views_row_count] = 1
 
 settings[mothership_item_list_first_last]  = 1
 settings[mothership_item_list_zebra]  = 1

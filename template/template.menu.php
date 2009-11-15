@@ -7,10 +7,10 @@
 
 function mothership_menu_tree($tree) {
   if (theme_get_setting('mothership_cleanup_menu_baseclass')) {
-    return '<ul class="menu">'. $tree .'</ul>';
+    return '<!--menu-->' . "\r" . '  <ul class="menu">' . "\r" . $tree . '  </ul>' . "\n  <!--/menu-->\n" ;
   }
   else{
-    return '<ul>'. $tree .'</ul>';
+    return '  <!--menu-->  <ul>'. $tree .'  </ul>\r';
   }
 
 }
@@ -36,10 +36,10 @@ function mothership_menu_item($link, $has_children, $menu = '', $in_active_trail
     }
 
     if ($class) {
-      return '<li class="'. $class .'">'. $link . $menu ."</li>\n";
+      return '    <li class="'. $class .'">'. $link . $menu ."</li>\n";
     }
     else{
-      return '<li>'. $link . $menu ."</li>\n";
+      return '    <li>'. $link . $menu ."</li>\n";
     }
 
 
@@ -47,10 +47,10 @@ function mothership_menu_item($link, $has_children, $menu = '', $in_active_trail
 
 function mothership_menu_local_task($link, $active = FALSE) {
   if (theme_get_setting('mothership_cleanup_menu_classes_active')) {
-    return '<li '. ($active ? 'class="active" ' : '') .'>'. $link ."</li>\n";
+    return '  <li '. ($active ? 'class="active" ' : '') .'>'. $link ."</li>\n";
   }
   else{
-    return '<li>'. $link ."</li>\n";
+    return '  <li>'. $link ."</li>\n";
   }
 }
 
@@ -62,10 +62,10 @@ function mothership_links($links, $attributes = array('class' => 'links')) {
 
   if (count($links) > 0) {
     if (theme_get_setting('mothership_cleanup_links_baseclass')) {
-      $output = '<ul'. drupal_attributes($attributes) .'>';
+      $output = '  <ul'. drupal_attributes($attributes) .'>';
     }
     else{
-      $output = '<ul>';
+      $output = '  <ul>';
     }
     $num_links = count($links);
     $i = 1;
@@ -114,12 +114,12 @@ function mothership_links($links, $attributes = array('class' => 'links')) {
       $i++;
 
 //      array_search($class) ;
-      $output .= '<li'. drupal_attributes(array('class' => $class)) .'>';
+      $output .= '  <li'. drupal_attributes(array('class' => $class)) .'>';
       $output .= $link;
       $output .= "</li>\n";
     }
 
-    $output .= '</ul>';
+    $output .= '</ul>\r';
   }
   return $output;
 }

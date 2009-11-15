@@ -367,23 +367,31 @@ function mothership_settings($saved_settings, $subtheme_defaults = array()) {
     '#collapsed' => FALSE,
   );
 
+  $form['views']['list']['mothership_cleanup_views_row_identify'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('views-row prefix to the classes:  (.views-row-first/.views-row-last, .views-row-[count], .views-row-odd/.views-row-even '),
+    '#default_value' => $settings['mothership_cleanup_views_row_identify'],
+  );
+
   $form['views']['list']['mothership_cleanup_views_first_last'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('add first & last classes from views list'),
+    '#title'         => t('first & last classes to the list  .first .last '),
     '#default_value' => $settings['mothership_cleanup_views_first_last'],
   );
 
   $form['views']['list']['mothership_cleanup_views_zebra'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('add odd / even class '),
+    '#title'         => t('odd / even class  .odd, .even'),
     '#default_value' => $settings['mothership_cleanup_views_zebra'],
   );
 
-  $form['views']['list']['mothership_cleanup_views_row_ident'] = array(
+
+  $form['views']['list']['mothership_cleanup_views_row_count'] = array(
     '#type'          => 'checkbox',
-    '#title'         => t('add views-row '),
-    '#default_value' => $settings['mothership_cleanup_views_row_ident'],
+    '#title'         => t('Row counting .row-[count]  '),
+    '#default_value' => $settings['mothership_cleanup_views_row_count'],
   );
+
 
   //tables
   $form['views']['table'] = array(

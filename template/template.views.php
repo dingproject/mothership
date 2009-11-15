@@ -16,21 +16,43 @@ function mothership_preprocess_views_view_unformatted(&$vars) {
   $vars['classes'] = array();
   // Set up striping values.
   foreach ($rows as $id => $row) {
-  //  $vars['classes'][$id] = 'views-row-' . ($id + 1);
-    if (theme_get_setting(mothership_cleanup_views_row_ident)) {
-      $vars['classes'][$id] = 'views-row';
+
+    if (theme_get_setting(mothership_cleanup_views_row_count)) {
+      if (theme_get_setting(mothership_cleanup_views_row_identify)) {
+        $vars['classes'][$id] = 'views-row-' . ($id + 1);            
+      }
+      else{
+        $vars['classes'][$id] = 'row-' . ($id + 1);  
+      }
     }
 
     if (theme_get_setting(mothership_cleanup_views_zebra)) {
-      //$vars['classes'][$id] .= ' views-row-' . ($id % 2 ? 'even' : 'odd');
-      $vars['classes'][$id] .=  ($id % 2 ? ' even ' : ' odd ');
+      if (theme_get_setting(mothership_cleanup_views_row_identify)) {
+        $vars['classes'][$id] .= ' views-row-' . ($id % 2 ? 'even' : 'odd');        
+      }
+      else{
+        $vars['classes'][$id] .=  ($id % 2 ? ' even ' : ' odd ');        
+      } 
     }
+
     if ($id == 0 AND theme_get_setting(mothership_cleanup_views_first_last)) {
-      $vars['classes'][$id] .= 'first';
+      if (theme_get_setting(mothership_cleanup_views_row_identify)) {
+        $vars['classes'][$id] .= ' views-row-first';
+      }
+      else{
+        $vars['classes'][$id] .= 'first';  
+      }  
+      
     }
   }
+
   if (theme_get_setting(mothership_cleanup_views_first_last)) {
-    $vars['classes'][$id] .= ' last';
+    if (theme_get_setting(mothership_cleanup_views_row_identify)) {
+      $vars['classes'][$id] .= ' views-row-last';
+    }
+    else{
+      $vars['classes'][$id] .= ' last';
+    }
   }
 
 }

@@ -32,7 +32,6 @@
  * this is so we can have a cleaner output - no reason to have an empty <div class="" id="">
  */
 
-
 if ($classes) {
   $classes = ' class="'. $classes . '"';
 }
@@ -45,18 +44,17 @@ if ($id_node) {
 <?php
 if ($page == 0) { ?>
 <div<?php print $id_node . $classes; ?>>
-
   <?php if ($node->title) {  ?>
-    <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
+  <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
   <?php } ?>
   <div class="meta">
     <?php if ($node->picture) { ?>
-      <?php print theme('imagecache', 'preset_namespace', $node->picture, $alt, $title, $attributes); ?>
+        <?php print theme('imagecache', 'preset_namespace', $node->picture, $alt, $title, $attributes); ?>
     <?php } ?>
 
-    <?php print theme('username', $node); ?>
+      <?php print theme('username', $node); ?>
 
-    <?php print format_date($node->created, 'custom', "j F Y") ?>
+      <?php print format_date($node->created, 'custom', "j F Y") ?>
   </div>
 
   <div class="content">
