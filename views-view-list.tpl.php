@@ -18,7 +18,6 @@
     }
     print '>';
     print $row;
-
     print '  </li>';
     print "\n";
   }

@@ -34,15 +34,11 @@
 <?php if (!empty($admin)) print $admin; ?>
 <div class="header">
   <<?php print $site_name_element; // defined in template.php  mothership_preprocess_page ?> id="site-name">
-    <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
-      <?php print $site_name; ?>
-    </a>
+    <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
   </<?php print $site_name_element; ?>>
-
 
   <?php print $site_slogan ?>
   <?php print $mission ?>
-
 
   <?php if ($header) { ?>
     <?php print $header; ?>
@@ -74,9 +70,7 @@
         <?php print $tabs; ?>
       <?php }; ?>
 
-      <?php if ($title AND (arg(0) != "node")) {  ?>
-        <h1><?php print $title; ?></h1>
-      <?php } ?>
+      <?php if ($title AND (arg(0) != "node")) {  ?><h1><?php print $title; ?></h1><?php } ?>
 
       <?php print $content; ?>
 
