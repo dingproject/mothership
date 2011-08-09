@@ -13,13 +13,14 @@ if (theme_get_setting('mothership_rebuild_registry')) {
 /**
  * include template overwrites
  */
-  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.functions.php';
-  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.form.php';
-  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.cck.php';
-  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.table.php';
-  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.alternatives.php';
-  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.menu.php';
-  include_once './' . drupal_get_path('theme', 'mothership') . '/template/template.views.php';
+$path = dirname(__FILE__);
+include $path . '/template/template.functions.php';
+include $path . '/template/template.form.php';
+include $path . '/template/template.cck.php';
+include $path . '/template/template.table.php';
+include $path . '/template/template.alternatives.php';
+include $path . '/template/template.menu.php';
+include $path . '/template/template.views.php';
 
 /**
  * preprocess
