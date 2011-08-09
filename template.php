@@ -37,7 +37,7 @@ function mothership_preprocess(&$vars, $hook) {
     // ** ------------------------------------------------------------------------ **
 
     //lets add some more template files 
-    if($vars['node']->type){
+    if (!empty($vars['node'])) {
       $vars['template_files'][] = 'page-' . $vars['node']->type;      
     }
 
@@ -243,8 +243,8 @@ function mothership_preprocess(&$vars, $hook) {
       }
     }
     //skinr
-    if( module_exists(skinr) ) {
-        $classes[] = $vars['skinr'];
+    if (module_exists('skinr')) {
+      $classes[] = $vars['skinr'];
     }
     
     $vars['classes'] = implode(' ', $classes);
@@ -356,8 +356,8 @@ function mothership_preprocess(&$vars, $hook) {
     }
 
     //skinr
-    if( module_exists(skinr) ) {
-        $classes[] = $vars['skinr'];
+    if (module_exists('skinr')) {
+      $classes[] = $vars['skinr'];
     }
 
     // Render block classes.
@@ -462,8 +462,8 @@ function mothership_preprocess(&$vars, $hook) {
 
     $classes = array();  
     //skinr
-    if( module_exists(skinr) ) {
-        $classes[] = $vars['skinr'];
+    if (module_exists('skinr')) {
+      $classes[] = $vars['skinr'];
     }
 
     $vars['classes'] = implode(' ', $classes);    

@@ -24,7 +24,13 @@ function mothership_item_list($items = array(), $title = NULL, $type = 'ul', $at
     $item_type = $type;
   }
 
-  $attributes['class'] .= " item-list";
+  if (isset($attributes['class'])) {
+    $attributes['class'] .= ' item-list';
+  }
+  else {
+    $attributes['class'] = 'item-list';
+  }
+
   //test if we have an title then add the div.item-list around the list
   if (isset($title)) {
     $output = '<div class="item-list">';
